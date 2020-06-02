@@ -9,6 +9,9 @@
 app/assets/javascripts/bundle.js
 app/assets/javascripts/bundle.js.map
 
+#public folder
+/public/assets
+
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
