@@ -8,12 +8,12 @@ class Api::SessionsController < ApplicationController
             signin(@user)
             render :signin
         else
-            my_render(422, @user.errors.full_messages)
+            my_render(422, ['invalid credentails'])
         end
     end
 
     def destroy
-        my_render(404, {}) unless current_user
+        my_render(404) unless current_user
 
         signout
         my_render(200)
