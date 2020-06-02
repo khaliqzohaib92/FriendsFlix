@@ -30,7 +30,7 @@ class ApplicationController < ActionController::Base
     def my_render(*args)
         # debugger
         if args[1]
-            render json: {errors: args[1]}, status: args[0]
+            render json: args[1], status: args[0]
         else
             render json: {}, status: args[0]
         end
