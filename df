@@ -1,0 +1,41 @@
+[33mcommit 358781b13d333f9ec48ca7e4649bf3f6daa16ebb[m[33m ([m[1;36mHEAD -> [m[1;32mauth[m[33m)[m
+Author: Zohaib Khaliq <khaliqzohaib92@gmail.com>
+Date:   Mon Jun 1 22:28:53 2020 -0700
+
+    Change error message
+
+[33mcommit e21d366a15a38258975154ddd0a0f9d0852e5501[m
+Author: Zohaib Khaliq <khaliqzohaib92@gmail.com>
+Date:   Mon Jun 1 22:26:07 2020 -0700
+
+    Add message of 404
+
+[33mcommit 30e11b1c1568481577d2f22be139e74a98bb5c5b[m[33m ([m[1;31morigin/auth[m[33m)[m
+Author: Zohaib Khaliq <khaliqzohaib92@gmail.com>
+Date:   Mon Jun 1 22:20:22 2020 -0700
+
+    Fix bugs
+
+[33mcommit 6795e4145381204a9042de61e8f002cf264e826c[m
+Author: Zohaib Khaliq <khaliqzohaib92@gmail.com>
+Date:   Mon Jun 1 21:09:53 2020 -0700
+
+    fix bugs in user controller and model
+
+[33mcommit 973ac8bd11494ded39f1995bf45e1848bbb5d48f[m
+Author: Zohaib <khaliqzohaib92@gmail.com>
+Date:   Mon Jun 1 17:55:26 2020 -0700
+
+    Auth backend and push setup for Heroku
+
+[33mcommit d1f6cd476e179865015a63db4177cfd7ea804d0c[m
+Author: Zohaib <khaliqzohaib92@gmail.com>
+Date:   Mon Jun 1 15:00:03 2020 -0700
+
+    Setup entry file to render #root container
+
+[33mcommit 8e59019d6bc27321def7ab5742599bf2458798dd[m
+Author: Zohaib <khaliqzohaib92@gmail.com>
+Date:   Sun May 24 09:39:37 2020 -0700
+
+    Initial commit
