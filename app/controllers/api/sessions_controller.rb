@@ -13,8 +13,10 @@ class Api::SessionsController < ApplicationController
     end
 
     def destroy
+        my_render(404, {}) unless current_user
+
         signout
-        my_render(200, {message: "Logged out!"})
+        my_render(200)
     end
     
 
