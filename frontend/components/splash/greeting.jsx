@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { ROUTE_SIGNUP, ROUTE_SIGNIN } from '../../util/route_utils';
 
 export default class Greeting extends React.Component{
     constructor(props){
@@ -9,8 +10,8 @@ export default class Greeting extends React.Component{
     render(){
         return (
             <>
-                <Link to="/signup">Sign Up</Link>
-                <Link to="/signin">Sign In</Link>
+                <Link to={ROUTE_SIGNUP}>Sign Up</Link>
+                <Link to={ROUTE_SIGNIN}>Sign In</Link>
             </>
         );
     }

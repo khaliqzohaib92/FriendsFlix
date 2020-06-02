@@ -1,16 +1,15 @@
 import {
     RECEIVE_CURRENT_USER, 
     REMOVE_USER
-} from '../actions/session_actions';
+} from '../../actions/session/session_actions';
 
-const _nullState = {id: null};
+const _nullState = {};
 
-const sessionReducer = (state = _nullState, action)=>{
+const userReducer = (state = _nullState, action)=>{
     Object.freeze(state);
-
     switch (action.type) {
         case RECEIVE_CURRENT_USER:
-            return Object.assign({}, state, {id: Object.keys(action.user)[0]});
+            return action.user;
         case REMOVE_USER:
             return _nullState;
         default:
@@ -18,4 +17,4 @@ const sessionReducer = (state = _nullState, action)=>{
     }
 }
 
-export default sessionReducer;
+export default userReducer;
