@@ -6,6 +6,7 @@ export const ROUTE_SPLASH = '/';
 export const ROUTE_PROFILES = '/profiles';
 export const ROUTE_SIGNUP = '/signup';
 export const ROUTE_SIGNIN = '/signin';
+export const ROUTE_HOME = '/home';
 
 
 

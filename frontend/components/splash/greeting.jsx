@@ -1,8 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
-import { ROUTE_SIGNUP, ROUTE_SIGNIN } from '../../util/route_utils';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {faChevronRight} from '@fortawesome/free-solid-svg-icons'
+
 import Demo from '../../util/demo';
+
 
 export default class Greeting extends React.Component{
     constructor(props){
@@ -19,17 +21,9 @@ export default class Greeting extends React.Component{
     render(){
         return (
             <>
-                <section className='splash-container'>
-                    <nav className="splash-nav">
-                        <a href="#">
-                            <img className="splash-nav-logo" src={window.logo} alt="FriendsFlix logo"/>
-                        </a>
-                        <div className="splash-nav-link-container">
-                            <Link to={ROUTE_SIGNUP} className="splash-nav-signup">Sign Up</Link>
-                            <Link to={ROUTE_SIGNIN} className="splash-nav-signin">Sign In</Link>
-                        </div>
-                        {/* <button onClick={this.demoLogin}>Demo Login</button> */}
-                    </nav>
+                <section className="splash-content-container">
+                    <span className="splash-main-content">Watch movies, TV shows with friends anytime anywhere</span>
+                    <button onClick={this.demoLogin} className="splash-demo-login button-red">Try Demo Login    <FontAwesomeIcon icon={faChevronRight}/></button>
                 </section>
             </>
         );

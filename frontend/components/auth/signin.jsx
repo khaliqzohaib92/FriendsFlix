@@ -4,7 +4,7 @@ import AuthForm from './auth_form';
 
 class SignIn extends Component {
     render() {
-        debugger
+        // debugger
         return (
             <div>
                 <AuthForm {...this.props}/>

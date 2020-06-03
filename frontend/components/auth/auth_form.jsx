@@ -4,7 +4,7 @@ import { ROUTE_PROFILES } from '../../util/route_utils';
 class AuthForm extends Component {
     constructor(props) {
         super(props);
-        debugger
+        // debugger
         this.state = {email: "", password: ""}
         this.submitForm = this.submitForm.bind(this);
     }
