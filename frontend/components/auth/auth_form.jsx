@@ -17,11 +17,7 @@ class AuthForm extends Component {
 
     submitForm(e){
         e.preventDefault();
-        this.props.action(this.state)
-        .then((user)=>{
-            // routing to profile page
-            this.props.history.push(ROUTE_PROFILES)
-        });
+        this.props.action(this.state);
     }
     
     render() {
