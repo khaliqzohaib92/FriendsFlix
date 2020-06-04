@@ -45,4 +45,6 @@ class User < ApplicationRecord
         return nil unless user && user.is_password?(password)
         user # return explicitly
     end
+
+    has_many :profiles, class_name: "Profile", foreign_key: "user_id"
 end

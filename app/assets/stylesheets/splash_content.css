@@ -2,6 +2,7 @@
  .splash-demo-login{
     margin-top: 20px;
     font-size: 2rem;
+    cursor: pointer;
 }
 
 .splash-content-container{

@@ -23,12 +23,14 @@ class AuthForm extends Component {
         e.target.click();
     }
 
+    //update state as inputs value changes
     handleChange(field){
        return e=>{
             this.setState({[field]: e.target.value});
         }
     }
 
+    //Error handling based on focus change in inputs
     handleBlur(field){
         return e=>{
             e.preventDefault();
@@ -65,10 +67,12 @@ class AuthForm extends Component {
         }
     }
 
+    //validating state variable values
     validate(){
         return this.state.emailError.length == 0 && this.state.passwordError.length == 0 && this.state.email.length > 0 && this.state.password.length > 0;
     }
 
+    //submit form to server
     submitForm(e){
         e.preventDefault();
         if(this.validate()){
@@ -76,6 +80,7 @@ class AuthForm extends Component {
         }
     }
     
+    //handle appending of additional error message to help user navigation
     //TODO optimise
     additionalErrorText(formType){
          return formType == SIGN_IN ? <span className="additional-error-text" onMouseDown={this.handleOnLinkMouseDown}>Please try again or <Link to={ROUTE_SIGNUP}>create a new account</Link></span> : 
