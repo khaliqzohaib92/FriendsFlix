@@ -3,18 +3,28 @@ import {Route} from 'react-router-dom'
 import {connect} from 'react-redux'
 import SplashHeader from "./splash_header";
 import { ROUTE_SPLASH, ROUTE_HOME } from "../../util/route_utils";
+import HomeHeader from "./home_header";
 
 
 const mapStateToProps = state => (
     {loggedIn: Boolean(state.session.currentUserId)}
 );
 
-const Header = ({loggedIn, exact}) => {
+const Header = ({loggedIn}) => {
+    //reset background to black color when user logged in
+    if(loggedIn){
+        document.body.classList.remove("splash-background");
+        document.body.classList.add("home-backgorund");
+    } else {
+        document.body.classList.add("splash-background");
+        document.body.classList.remove("home-backgorund");
+    }
+
  return(
     <>
-        <Route path={loggedIn ? ROUTE_HOME :  ROUTE_SPLASH} exact={exact} render={
+        <Route path={ROUTE_SPLASH}  render={
             (props)=>{
-                return !loggedIn ? <SplashHeader/> : <h1>Here comes the logged in header</h1>
+                return !loggedIn ? <SplashHeader/> : <HomeHeader/>
             }
         }/> 
     </>

@@ -5,7 +5,7 @@ import profileRecducer  from '../profile/profile_reducer';
 
 const entitiesReducer = combineReducers({
     user: userRecducer,
-    profile: profileRecducer,
+    profiles: profileRecducer,
 });
 
 export default entitiesReducer;
