@@ -8,7 +8,7 @@ class Api::SessionsController < ApplicationController
             signin(@user)
             render :signin
         else
-            my_render(422, ['invalid credentails'])
+            my_render(422, ['Invalid credentails'])
         end
     end
 
