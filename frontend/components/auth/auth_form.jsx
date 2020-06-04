@@ -7,12 +7,21 @@ import {receiveErrors} from '../../actions/session/session_actions'
 class AuthForm extends Component {
     constructor(props) {
         super(props);
-        // debugger
         this.state = {email: "", password: "", emailError: "", passwordError:""}
         this.submitForm = this.submitForm.bind(this);
+        this.handleOnLinkMouseDown = this.handleOnLinkMouseDown.bind(this);
     }
 
-
+    componentWillUnmount() {
+        //clear session errors
+        this.props.clearErrors();
+    }
+    
+    handleOnLinkMouseDown(e){
+        //quick fix to click even not in focus (add to fix handelBlur interfernce with link onClick)
+        e.preventDefault();
+        e.target.click();
+    }
 
     handleChange(field){
        return e=>{
@@ -22,6 +31,7 @@ class AuthForm extends Component {
 
     handleBlur(field){
         return e=>{
+            e.preventDefault();
             if(document.activeElement != e.target){
                 //handle empty field errors
                 if(e.target.value == "") {
@@ -31,7 +41,8 @@ class AuthForm extends Component {
                         this.setState({[field]: "Password should be atleast 6 characters"})
                     }
                 } else {
-                    // debugger
+                    // handle validity with value
+
                     //validity of email
                     if(field == "emailError" ){
                         if(/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(e.target.value)){
@@ -54,16 +65,21 @@ class AuthForm extends Component {
         }
     }
 
+    validate(){
+        return this.state.emailError.length == 0 && this.state.passwordError.length == 0 && this.state.email.length > 0 && this.state.password.length > 0;
+    }
+
     submitForm(e){
         e.preventDefault();
-        if(this.state.emailError.length == 0 && this.state.passwordError.length == 0){
+        if(this.validate()){
             this.props.action(Object.assign({},{email: this.state.email, password: this.state.password}));
         }
     }
     
+    //TODO optimise
     additionalErrorText(formType){
-         return formType == SIGN_IN ? <span className="additional-error-text">Please try again or <Link to={ROUTE_SIGNUP}>create a new account</Link></span> : 
-         <span className="additional-error-text">Try <Link to={ROUTE_SIGNIN}>signing in</Link></span>
+         return formType == SIGN_IN ? <span className="additional-error-text" onMouseDown={this.handleOnLinkMouseDown}>Please try again or <Link to={ROUTE_SIGNUP}>create a new account</Link></span> : 
+         <span className="additional-error-text" onMouseDown={this.handleOnLinkMouseDown}>Try <Link to={ROUTE_SIGNIN}>signing in</Link></span>
     }
 
     render() {
@@ -94,7 +110,7 @@ class AuthForm extends Component {
                 </form>
                 <span className="auth-form-route-text">
                     {formType == SIGN_UP ? 'New to FriendsFlix?' : 'Already have account?'} 
-                    <Link className="auth-from-text" to={formType == SIGN_UP ? ROUTE_SIGNIN: ROUTE_SIGNUP}>{`${formType == SIGN_UP ? SIGN_IN : SIGN_UP} Now`}</Link>
+                    <Link className="auth-from-text" onMouseDown={this.handleOnLinkMouseDown} to={formType == SIGN_UP ? ROUTE_SIGNIN: ROUTE_SIGNUP}>{`${formType == SIGN_UP ? SIGN_IN : SIGN_UP} Now`}</Link>
                 </span>
 
                 

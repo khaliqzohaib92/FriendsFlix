@@ -1,6 +1,7 @@
 import {
     RECEIVE_CURRENT_USER, 
-    RECEIVE_SESSION_ERRORS
+    RECEIVE_SESSION_ERRORS,
+    CLEAR_ERRORS
 } from '../../actions/session/session_actions';
 
 const _nullState = [];
@@ -11,7 +12,9 @@ const sessionErrorsReducer = (state = _nullState, action)=>{
     switch (action.type) {
         case RECEIVE_SESSION_ERRORS:
             return action.errors
+        case CLEAR_ERRORS:
         case RECEIVE_CURRENT_USER:
+            debugger
             return _nullState;
         default:
             return state;
