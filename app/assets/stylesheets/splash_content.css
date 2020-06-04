@@ -1,0 +1,30 @@
+
+ .splash-demo-login{
+    margin-top: 20px;
+    font-size: 2rem;
+}
+
+.splash-content-container{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   min-height: 90vh;
+}
+
+.splash-main-content{
+    font-size: 4em;
+    max-width: 800px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.hidden{
+    display: none;
+}
+
+.group:after{
+    content: "";
+    display: block;
+    clear: both;
+}
