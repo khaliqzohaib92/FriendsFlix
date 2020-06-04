@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { ROUTE_SIGNUP, ROUTE_SIGNIN } from '../../util/route_utils';
 import {Link} from 'react-router-dom';
 import {SIGN_IN, SIGN_UP} from '../../util/constants'
-import {receiveErrors} from '../../actions/session/session_actions'
 
 class AuthForm extends Component {
     constructor(props) {
@@ -14,7 +13,7 @@ class AuthForm extends Component {
 
     componentWillUnmount() {
         //clear session errors
-        this.props.clearErrors();
+        this.props.removeErrors();
     }
     
     handleOnLinkMouseDown(e){

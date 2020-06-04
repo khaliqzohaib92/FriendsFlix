@@ -6,7 +6,7 @@ import { ROUTE_SPLASH, ROUTE_HOME } from "../../util/route_utils";
 
 
 const mapStateToProps = state => (
-    {loggedIn: Boolean(state.session.id)}
+    {loggedIn: Boolean(state.session.currentUserId)}
 );
 
 const Header = ({loggedIn, exact}) => {

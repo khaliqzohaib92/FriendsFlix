@@ -11,7 +11,7 @@ export const ROUTE_HOME = '/home';
 
 
 const mapStateToProps = state => (
-    {loggedIn: Boolean(state.session.id)}
+    {loggedIn: Boolean(state.session.currentUserId)}
 );
 
 

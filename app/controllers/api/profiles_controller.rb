@@ -38,8 +38,8 @@ class Api::ProfilesController < ApplicationController
     end
 
     def destroy
-        profile = Profile.find_by(id: params[:id])
-        if profile.destroy
+        @profile = Profile.find_by(id: params[:id])
+        if @profile.destroy
             my_render(200)
         else
             my_render(404, @profile.errors.full_messages)
