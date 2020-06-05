@@ -1,0 +1,134 @@
+.all-profiles-main{
+    display: flex;
+    min-height: 86vh;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transition-duration: 4s;
+    transition-delay: 2s;
+}
+
+.all-profiles-heading{
+    font-size: 3.5em;
+    margin-bottom: 30px;
+}
+
+.all-profile-list-container{
+    display: flex;
+}
+
+.all-profiles-list{
+    display: flex;
+    list-style: none;
+}
+
+.all-profiles-list-item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 20px;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.all-profiles-list-item-smile, .profiles-add-container{
+    height: 150px;
+    width: 150px;
+    position: relative;
+    border: 3px solid #141414
+}
+
+.all-profiles-list-item-smile p, .profiles-add, .center-text{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2.5em;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+.all-profiles-list-item-text, .profile-add-text{
+    text-transform: capitalize;
+    margin-top: 20px;
+    font-size: 1.3em;
+    color: #808080;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.all-profile-add {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.profiles-add-container{
+    position: relative;
+}
+
+.profiles-add{
+    background: url(plus.png);
+    background-size: cover;
+    display: block;
+    width: 6vw;
+    height: 6vw;
+}
+
+
+.all-profile-add:hover .profiles-add-container {
+    background-color: silver;
+}
+
+.all-profile-add:hover .profile-add-text {
+    color: white;
+}
+
+.all-profiles-list-item:hover .all-profiles-list-item-smile{
+    border: 3px solid white;
+}
+
+.all-profiles-list-item:hover .all-profiles-list-item-text{
+    color: white;
+}
+
+.all-profiles-manage{
+    text-decoration: none;
+    border: 1px solid #808080;
+    color: #808080;
+}
+
+.profile-margin{
+    margin-bottom: 120px;
+    margin-top: 80px;
+}
+
+.all-profiles-manage:hover{
+    border: 1px solid white;
+    color: white;
+  }
+
+.profiles-button{
+    padding: .5em 1.5em;
+    letter-spacing: 2px;
+    cursor: pointer;
+    font-size: 1.2em;
+}
+
+  .manage-profiles-done{
+    text-transform: uppercase;
+   
+  }
+
+  .manage-profile-overlay{
+      background-color: black;
+      opacity: 0.5;
+      position: absolute;
+  }
+
+  .manage-profile-overlay p{
+      margin-top: 40px;
+  }
+
+

@@ -13,3 +13,40 @@
  *= require_tree .
  *= require_self
  */
+
+
+
+
+
+/* main container css------------------------------------------------------------------------------------------------------------ */
+
+body{
+    height: 100%;
+    display: block;
+}
+
+.splash-background{
+    background: url(splash_1.png) no-repeat; 
+}
+
+.home-backgorund{
+   background-color:#141414;
+   background-size: 100%;
+   background-repeat: no-repeat;
+   height: 100vh;
+   top: 0;
+   left: 0;
+   bottom: 0;
+   right: 0;
+   position: absolute;
+   z-index: -1;
+}
+
+ .main-app{
+ }
+
+ /* .main-content{
+    min-height: 600px;
+ } */
+
+ 

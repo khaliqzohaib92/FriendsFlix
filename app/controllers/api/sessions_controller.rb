@@ -2,27 +2,25 @@ class Api::SessionsController < ApplicationController
     before_action :ensure_signed_in, only: [:destroy]
 
     def create
-        @user = User.find_by_credentails(user_params[:email], user_params[:password])
+        @user = User.find_by_credentials(user_params[:email], user_params[:password])
 
         if @user
             signin(@user)
             render :signin
         else
-            my_render(422, @user.errors.full_messages)
+            my_render(422, ['Invalid credentails'])
         end
     end
 
     def destroy
-        @user = User.find(params[:id])
-        if @user.destroy
-            signout
-            my_render(200, {})
-        else
-            my_render(422, @user.errors.full_messages)
-        end
+        my_render(404) unless current_user
+
+        signout
+        my_render(200)
     end
     
 
+    private
     def user_params
         params.require(:user).permit(:email, :password)
     end

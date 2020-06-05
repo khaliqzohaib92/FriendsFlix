@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
 
-    helper_method :current_user, :ensure_signed_in
+    helper_method :current_user, :ensure_signed_in, :signed_in?
 
     def current_user
         @current_user ||= User.find_by(session_token: session[:session_token])
@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
     end
 
     def ensure_signed_in
-        # debugger
+        # //degbuuger
         unless signed_in?
             my_render(404)
         end
@@ -28,9 +28,9 @@ class ApplicationController < ActionController::Base
 
     # renders custom objects with status
     def my_render(*args)
-        # debugger
+        # //degbuuger
         if args[1]
-            render json: {errors: args[1]}, status: args[0]
+            render json: args[1], status: args[0]
         else
             render json: {}, status: args[0]
         end
