@@ -3,7 +3,7 @@ import {
     REMOVE_USER
 } from '../../actions/session/session_actions';
 import {} from '../../actions/profile/profile_action'
-const _nullState = {id: null};
+const _nullState = {currentUserId   : null};
 
 const sessionReducer = (state = _nullState, action)=>{
     Object.freeze(state);

@@ -7,7 +7,6 @@ export const createProfile = (profile)=>{
 }
 
 export const updateProfile = (profile)=>{
-    debugger
     return $.ajax({
         method: 'PATCH',
         url: `api/profiles/${profile.id}`,

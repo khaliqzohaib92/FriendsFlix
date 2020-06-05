@@ -9,7 +9,7 @@ class Api::ProfilesController < ApplicationController
     def create 
         @profile = Profile.new(profile_params)
         @profile.user_id = current_user.id
-        if @profile.save!
+        if @profile.save
             render :show
         else
             my_render(422, @profile.errors.full_messages)
@@ -21,7 +21,7 @@ class Api::ProfilesController < ApplicationController
         if @profile
             render :show
         else
-            my_render(404, @profile.errors.full_messages)
+            my_render(404, ["Not found"])
         end
     end
 
@@ -48,7 +48,7 @@ class Api::ProfilesController < ApplicationController
 
     private
     def profile_params
-        params.require(:profile).permit(:title)
+        params.require(:profile).permit(:title, :color)
     end
     
 end

@@ -13,7 +13,6 @@ document.addEventListener("DOMContentLoaded", ()=>{
     
     //populate current user if exist
     if(window.currentUser){
-        // debugger
         //dispatch to reducer
         store.dispatch(receiveCurrentUser(window.currentUser));
 

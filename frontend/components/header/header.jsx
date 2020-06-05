@@ -11,6 +11,7 @@ const mapStateToProps = state => (
 );
 
 const Header = ({loggedIn}) => {
+    //TODO optimise it
     //reset background to black color when user logged in
     if(loggedIn){
         document.body.classList.remove("splash-background");

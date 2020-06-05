@@ -1,1 +1,1 @@
-json.extract! profile, :id, :title
+json.extract! profile, :id, :title, :color
