@@ -24,7 +24,7 @@ class Profiles extends Component {
 
     handleProfileClick(profileId){
         return e=>{
-            debugger
+            //degbuuger
             e.preventDefault();
             if(this.props.display_type == MANAGE){
                 //clicked from manage
@@ -32,6 +32,7 @@ class Profiles extends Component {
                 this.props.history.push(editProfileRoute(profileId))
             }else{
                 //clicked from general
+                alert("This will open dashboard");
             }
         }
     }

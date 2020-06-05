@@ -26,7 +26,7 @@ class Api::ProfilesController < ApplicationController
     end
 
     def update
-        # debugger
+        # //degbuuger
         @profile = Profile.find_by(id: params[:id])
 
         @profile.update(profile_params)

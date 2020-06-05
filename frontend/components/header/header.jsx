@@ -6,9 +6,10 @@ import { ROUTE_SPLASH, ROUTE_HOME } from "../../util/route_utils";
 import HomeHeader from "./home_header";
 
 
-const mapStateToProps = state => (
-    {loggedIn: Boolean(state.session.currentUserId)}
-);
+const mapStateToProps = state => {
+    //degbuuger
+   return {loggedIn: Boolean(state.session.currentUserId)};
+};
 
 const Header = ({loggedIn}) => {
     //TODO optimise it

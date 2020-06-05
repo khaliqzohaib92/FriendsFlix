@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
     end
 
     def ensure_signed_in
-        # debugger
+        # //degbuuger
         unless signed_in?
             my_render(404)
         end
@@ -28,7 +28,7 @@ class ApplicationController < ActionController::Base
 
     # renders custom objects with status
     def my_render(*args)
-        # debugger
+        # //degbuuger
         if args[1]
             render json: args[1], status: args[0]
         else

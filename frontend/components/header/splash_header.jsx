@@ -4,7 +4,7 @@ import {ROUTE_SIGNUP, ROUTE_SIGNIN} from '../../util/route_utils'
 import { withRouter } from "react-router-dom";
 
 const SplashHeader = (props)=>{
-    // debugger
+    // //degbuuger
     const {pathname} = props.location;
     const showButtons = pathname.includes(ROUTE_SIGNIN) || pathname.includes(ROUTE_SIGNUP) ? false : true;
         return (

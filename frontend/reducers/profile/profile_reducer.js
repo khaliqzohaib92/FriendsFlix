@@ -3,6 +3,7 @@ import {
     RECEIVE_PROFILE,
     REMOVE_PROFILE
 } from '../../actions/profile/profile_action';
+import { REMOVE_USER } from '../../actions/session/session_actions';
 
 const _nullState = {};
 
@@ -18,6 +19,9 @@ const profileReducer = (state = _nullState, action)=>{
             const nextState = Object.assign({},state);
             delete nextState[action.profileId];
             return nextState
+            // TODO improve the logic to remove all profiles from the store
+        case REMOVE_USER:
+            return _nullState;
         default:
             return state;
     }
