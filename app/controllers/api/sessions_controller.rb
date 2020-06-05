@@ -11,7 +11,7 @@ class Api::SessionsController < ApplicationController
             my_render(422, ['Invalid credentails'])
         end
     end
-
+ 
     def destroy
         my_render(404) unless current_user
 
