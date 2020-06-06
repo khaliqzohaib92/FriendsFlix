@@ -23,3 +23,14 @@ category2 = Category.create(title:"test title 2")
 categories_link1 = Categorieslink.create(video_id: video1.id, category_id: category1.id)
 categories_link2 = Categorieslink.create(video_id: video2.id, category_id: category1.id)
 categories_link3 = Categorieslink.create(video_id: video3.id, category_id: category2.id)
+
+
+# seeding video url to videos
+
+require 'open-uri'
+
+# create a File from the url
+file = open('https://friends-flix-seed.s3.us-east-2.amazonaws.com/trailer_hd.ogv')
+
+# attach to user
+video1.video_url.attach(io: file, filename: 'test_video.ogv')
