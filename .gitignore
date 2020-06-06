@@ -11,6 +11,7 @@ app/assets/javascripts/bundle.js.map
 
 #public folder
 /public/assets
+/videos/*
 
 # Ignore all logfiles and tempfiles.
 /log/*
