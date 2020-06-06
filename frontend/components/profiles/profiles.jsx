@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ROUTE_PROFILES_FORM, ROUTE_PROFILES_MANAGE, editProfileRoute } from '../../util/route_utils';
+import { ROUTE_PROFILES_FORM, ROUTE_PROFILES_MANAGE, editProfileRoute, ROUTE_HOME } from '../../util/route_utils';
 import {Link} from 'react-router-dom';
 import { MANAGE } from '../../util/constants';
 
@@ -27,12 +27,14 @@ class Profiles extends Component {
             //degbuuger
             e.preventDefault();
             if(this.props.display_type == MANAGE){
-                //clicked from manage
+                //clicked from manage profile
                 //quick fix to open edit form for specific profile
                 this.props.history.push(editProfileRoute(profileId))
             }else{
-                //clicked from general
-                alert("This will open dashboard");
+                //clicked from general profile selection
+                this.props.receiveCurrentProfile(profileId);
+                //quick fix to redirect to home when profile is clicked
+                this.props.history.push(ROUTE_HOME)
             }
         }
     }
@@ -43,9 +45,7 @@ class Profiles extends Component {
     render() {
         const {profiles, user} = this.props;
         return (
-            <div className="all-profiles-main">
-                {/* Hello from profiles {this.props.user.email}*/}
-                <button onClick={this.signout} className="profile-form-cancel-btn">Sign Out</button> 
+            <div className="all-profiles-main"> 
                 <h1 className="all-profiles-heading">{this.props.display_type == MANAGE ? "Manage Profile:" : "Who's watching?"}</h1>
                 <div className="all-profile-list-container">
                     <ul className="all-profiles-list">

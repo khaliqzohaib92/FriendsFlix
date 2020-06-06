@@ -4,11 +4,11 @@ import {connect} from 'react-redux'
 import SplashHeader from "./splash_header";
 import { ROUTE_SPLASH, ROUTE_HOME } from "../../util/route_utils";
 import HomeHeader from "./home_header";
+import { CURRENT_USER_ID } from "../../util/constants";
 
 
 const mapStateToProps = state => {
-    //degbuuger
-   return {loggedIn: Boolean(state.session.currentUserId)};
+   return {loggedIn: Boolean(state.session[CURRENT_USER_ID])};
 };
 
 const Header = ({loggedIn}) => {

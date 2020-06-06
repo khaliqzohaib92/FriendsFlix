@@ -7,6 +7,7 @@
 #  user_id    :integer          not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  color      :string           not null
 #
 class Profile < ApplicationRecord
     validates :title, :user_id, presence: true
