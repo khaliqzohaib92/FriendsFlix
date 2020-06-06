@@ -22,4 +22,6 @@ class Video < ApplicationRecord
     has_many :categories_link, class_name: "Categorieslink", foreign_key: "video_id"
 
     has_many :categories, through: :categories_link, source: :category
+
+    has_one_attached :video_url
 end

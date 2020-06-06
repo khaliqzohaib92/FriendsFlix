@@ -1,7 +1,7 @@
 import {connect} from 'react-redux';
 import Home from './home'
 import { CURRENT_PROFILE_ID } from '../../util/constants';
-import {fetchVideos} from '../../actions/video/video_action'
+import {fetchVideos, fetchVideo} from '../../actions/video/video_action'
 import {fetchCategories} from '../../actions/category/category_action'
 const mSTP = (state)=>{
     return {
@@ -15,6 +15,7 @@ const mSTP = (state)=>{
 const mDTP = (dispatch)=>{
     return{
         fetchVideos:()=>dispatch(fetchVideos()),
+        fetchVideo:(videoId)=>dispatch(fetchVideo(videoId)),
         fetchCategories:()=>dispatch(fetchCategories()),
     };
 };

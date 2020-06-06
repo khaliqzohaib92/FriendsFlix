@@ -2,8 +2,8 @@
 json.id video.id
 json.title video.title
 json.video_type video.video_type
-
 if full_details
+    json.video_url url_for(video.video_url)
     json.description video.description
     json.year video.year
     json.runtime video.runtime
