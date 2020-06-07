@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { ROUTE_PROFILES_FORM, ROUTE_PROFILES_MANAGE, editProfileRoute, ROUTE_HOME } from '../../util/route_utils';
 import {Link} from 'react-router-dom';
 import { MANAGE } from '../../util/constants';
+import { Redirect } from "react-router-dom";
 
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -10,6 +11,7 @@ import {faEdit} from '@fortawesome/free-solid-svg-icons'
 class Profiles extends Component {
     constructor(props){
         super(props);
+        this.state = {redirectToHome: false};
         this.signout = this.signout.bind(this);
         this.goBack = this.goBack.bind(this);
     }
@@ -33,8 +35,8 @@ class Profiles extends Component {
             }else{
                 //clicked from general profile selection
                 this.props.receiveCurrentProfile(profileId);
-                //quick fix to redirect to home when profile is clicked
-                this.props.history.push(ROUTE_HOME)
+
+                this.setState({redirectToHome: true});
             }
         }
     }
@@ -43,6 +45,10 @@ class Profiles extends Component {
     }
 
     render() {
+        if (this.state.redirectToHome) 
+        //quick fix to redirect to home when profile is clicked
+        return <Redirect to={ROUTE_HOME} />
+
         const {profiles, user} = this.props;
         return (
             <div className="all-profiles-main"> 

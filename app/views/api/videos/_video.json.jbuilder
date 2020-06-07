@@ -1,14 +1,16 @@
 # debugger
 json.id video.id
 json.title video.title
-json.video_type video.video_type
+json.videoType video.video_type
+json.thumbnailUrl video.thumbnail_url.attached? ? url_for(video.thumbnail_url) : ""
+# debugger
 if full_details
-    json.video_url rails_blob_url(video.video_url, disposition: :inline)
+    json.videoUrl  video.video_url.attached? ? url_for(video.video_url) : ""
     json.description video.description
     json.year video.year
     json.runtime video.runtime
-    json.video_rating video.video_rating
-    json.content_rating video.content_rating
-    json.created_at video.created_at
+    json.videoRating video.video_rating
+    json.contentRating video.content_rating
+    json.createdAt video.created_at
 end
 json.categoryIds video.categories.ids 

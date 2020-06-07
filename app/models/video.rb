@@ -24,4 +24,6 @@ class Video < ApplicationRecord
     has_many :categories, through: :categories_link, source: :category
 
     has_one_attached :video_url
+
+    has_one_attached :thumbnail_url
 end

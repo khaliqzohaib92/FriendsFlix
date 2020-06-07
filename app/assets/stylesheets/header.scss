@@ -27,3 +27,129 @@
    color: white;
    border-style: none;
 }
+
+// home header
+
+.home-nav-logo{
+   width: 150px;
+   height: 30px;
+}
+
+.home-nav-contianer-1{
+   display: flex;
+   flex-direction: row;
+}
+
+.home-nav-items-list{
+   display: flex;
+   flex-direction: row;
+   list-style: none;
+   align-items: center;
+}
+
+.home-nav-item  {
+   margin-left: 20px;
+   text-decoration: none;
+   font-size: 0.9em;
+   color: rgb(204, 204, 200);
+}
+
+.home-nav-item:hover  {
+   margin-left: 20px;
+   text-decoration: none;
+   font-size: 0.9em;
+   color: #B3B3A7;
+}
+
+.home-nav-container-2{
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+}
+
+.home-nav-search-container{
+   min-height: 25px;
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   padding-left: 7px;
+}
+
+.search-background{
+   background-color: #3A3838;
+   border: 1px solid white;
+}
+
+.home-nav-search-input{
+   border: none;
+   background-color: transparent;
+   padding-left: 16px;
+   font-size: 0.9em;
+   color: white;
+   display: flex;
+}
+
+input::placeholder{
+   color: white;
+   font-size: 0.9em;
+
+}
+
+.home-nav-profile-pic{
+   margin-left: 20px;
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   position: relative;
+}
+
+.home-nav-profile-pic > span{
+   margin-right: 5px;
+   height: 35px;
+   width: 35px;
+   background-color: yellow;
+   position: relative;
+}
+
+.home-nav-profile-pic p{
+  position: absolute;
+  top: 6px;
+  left: 10px;
+  font-size: 1.2em;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.profile-drop-down{
+   position: absolute;
+   display: none;
+   justify-content: end;
+   padding-top: 10px;
+   right: 33px;
+   top: 55px;
+}
+
+.profile-drop-down-sub-container{
+   background-color: rgba(5, 5, 5, 0.507);
+   border: 1px solid #3A3838;
+   padding: 20px 16px 20px 10px;
+}
+
+.profile-drop-down-item{
+   list-style: none;
+   margin-bottom: 7px;
+   cursor: pointer;
+   font-size: 0.9em;
+}
+
+.profile-drop-down-item:hover{
+   text-decoration:  underline;
+}
+
+.bottom-border{
+   border-bottom: 1px solid gray;
+}
+
+.profile-drop-down:hover ,.home-nav-profile-pic:hover + .profile-drop-down{
+   display: flex;
+}

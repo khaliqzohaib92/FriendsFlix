@@ -48,7 +48,7 @@ const Protected = ({ component: Component, path, loggedIn, exact, selectedProfil
        //render specified component if profile is selected 
        selectedProfile ? (<Component {...props}/>) : (
          //includes ./profiles in route render component spcified if not render profileContainer
-         props.location.pathname.includes(ROUTE_PROFILES) ?  <Component {...props} /> : <ProfilesContainer {...props} />
+         props.location.pathname.includes(ROUTE_PROFILES) ?  <Component {...props} /> : <Redirect to={ROUTE_PROFILES} {...props} />
        )
      ) 
     }} />
