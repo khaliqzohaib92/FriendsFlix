@@ -20,13 +20,15 @@ class Home extends Component {
         return (
             <div>
                 <TopVideoContainer videos={this.props.videos} type={TYPE_MOVIES}/>
-                {
-                    this.props.categories.map((category)=>{
-                        return(
-                            <CategoryContainer category={category} key={category.id}/>
-                        )
-                    })
-                }
+                <div className="categories-videos-container">
+                    {
+                        this.props.categories.map((category)=>{
+                            return(
+                                <CategoryContainer category={category} key={category.id}/>
+                            )
+                        })
+                    }
+                </div>
             </div>
         );
     }
