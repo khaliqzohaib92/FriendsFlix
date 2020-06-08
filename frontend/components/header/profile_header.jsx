@@ -13,12 +13,12 @@ import {CURRENT_PROFILE_ID} from '../../util/constants'
 class ProfileHeader extends React.Component {
 
     componentDidMount(){
-        debugger
+        
         // //remove profile id if user navigated to profile page
         this.props.removeCurrentProfile();
     }
     render(){
-        debugger
+        
         return (
             <header>
                 <nav className="splash-nav">

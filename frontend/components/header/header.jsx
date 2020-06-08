@@ -25,12 +25,12 @@ const Header = (props) => {
         document.body.classList.remove("home-backgorund");
     }
     const path = props.location.pathname;
-debugger
+// 
  return(
     <>
         <Route path={ROUTE_SPLASH}  render={
             ()=>{
-                debugger
+                // 
                 return !props.loggedIn ? <SplashHeader/> : (props.profileSelected && !path.includes(ROUTE_PROFILES)) ? <HomeHeader/> : <ProfileHeader/>
             }
         }/> 

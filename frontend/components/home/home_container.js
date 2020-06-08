@@ -15,7 +15,6 @@ const mSTP = (state)=>{
 const mDTP = (dispatch)=>{
     return{
         fetchVideos:()=>dispatch(fetchVideos()),
-        fetchVideo:(videoId)=>dispatch(fetchVideo(videoId)),
         fetchCategories:()=>dispatch(fetchCategories()),
     };
 };

@@ -58,7 +58,7 @@ class HomeHeader extends React.Component {
     }
 
     render(){
-        debugger
+        // 
         return (
             <header>
                 <nav className="splash-nav">
@@ -67,7 +67,7 @@ class HomeHeader extends React.Component {
                             <img className="splash-nav-logo home-nav-logo" src={window.logo} alt="FriendsFlix logo"/>
                         </a>
                         <ul className={`home-nav-items-list `}>
-                            <li><Link className="home-nav-item" to="">Home</Link></li>
+                            <li><Link className="home-nav-item active" to="">Home</Link></li>
                             <li><Link className="home-nav-item" to="">TV Shows</Link></li>
                             <li><Link className="home-nav-item" to="">Movies</Link></li>
                             <li><Link className="home-nav-item" to="">My List</Link></li>

@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import TopVideoContainer from './topvideo/top_video_container';
+import { TYPE_MOVIES } from '../../util/constants';
+import CategoryContainer from './category/category_container';
 
 class Home extends Component {
 
@@ -13,20 +16,17 @@ class Home extends Component {
     }
 
     render() {
-        const url  = (this.props.videos[0] && this.props.videos[0].video_url) ? this.props.videos[0].video_url : ""
-        // const url = "https://media.w3.org/2010/05/sintel/trailer_hd.ogv";
+        
         return (
             <div>
-                <p>Top Video:</p>
-
-                {/* <video src={url} width="500" height="281"  controls="controls" autoPlay="autoplay">
-                </video> */}
-
-                {/* <img src={img}/> */}
-                <br/>
-                <p>Categoreis: {JSON.stringify(this.props.categories)}</p>
-                <br/>
-                <p>Videos: {JSON.stringify(this.props.videos)}</p>
+                <TopVideoContainer videos={this.props.videos} type={TYPE_MOVIES}/>
+                {
+                    this.props.categories.map((category)=>{
+                        return(
+                            <CategoryContainer category={category} key={category.id}/>
+                        )
+                    })
+                }
             </div>
         );
     }

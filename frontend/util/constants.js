@@ -6,3 +6,5 @@ export const ADD = "Add";
 export const EDIT = "Edit";
 export const CURRENT_PROFILE_ID = "currentProfileId";
 export const CURRENT_USER_ID = "currentUserId";
+export const TYPE_MOVIES = "movies";
+export const TYPE_TV_SHOWS = "tvshows"
