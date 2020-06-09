@@ -15,6 +15,7 @@ class Video extends Component {
         this.addToList = this.addToList.bind(this);
         this.changeVolume = this.changeVolume.bind(this);
         this.epxandDetails = this.epxandDetails.bind(this);
+        this.uniqueId = new Date().getMilliseconds();
     }
 
     playVideo(e){
@@ -27,8 +28,8 @@ class Video extends Component {
 
     changeVolume(e) {
         e.preventDefault();
-
-        const videoElement = document.getElementById("cat-video")
+        // debugger
+        const videoElement = document.getElementById("cat-video"+this.uniqueId);
         videoElement.muted = !videoElement.muted;
         this.setState({muted: videoElement.muted});
     }
@@ -38,7 +39,6 @@ class Video extends Component {
     }
 
     switchToVideo(e){
-        // e.preventDefault();
         this.timeOutInstance = setTimeout(() => {
              if(this.props.video.contentRating){
             this.setState({switch: true});
@@ -47,7 +47,7 @@ class Video extends Component {
                     this.setState({switch: true});
                 });
             }
-        }, 500);
+        }, 700);
        
     }
 
@@ -65,7 +65,7 @@ class Video extends Component {
         const thumbnailUrl = "https://i.pinimg.com/236x/98/a9/86/98a986ed1761a2b11990912fa1921983.jpg";
         return (
             <div className="video-container" id="video-container"  onMouseEnter={this.switchToVideo} onMouseLeave={this.switchToImage}>               
-                <video className="video-thumbnail" id="cat-video" poster={thumbnailUrl} src={this.state.switch ? videoUrl : ""} autoPlay muted /> 
+                <video className="video-thumbnail" id={`cat-video${this.uniqueId}`} poster={thumbnailUrl} src={this.state.switch ? videoUrl : ""} autoPlay muted /> 
                 <div className={`${!this.state.switch ? "hidden" : "video-detail"}` }>
                     <div className="video-detail-top">
                         <div className="video-detail-sub-1">
