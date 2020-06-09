@@ -3,14 +3,14 @@ import VideoConatiner from '../video/video_container';
 
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {faChevronLeft, faChevronRight} from '@fortawesome/free-solid-svg-icons'
+import {faChevronLeft, faChevronRight, faPlay, faPlus, faTimesCircle} from '@fortawesome/free-solid-svg-icons'
 
 class Category extends Component {
 
     constructor(props){
         super(props);
 
-        this.state={arrows: false, tranlateX: 0};
+        this.state={arrows: false, tranlateX: 0, expandedVideoId: 0, selectedVideo:{}};
         this.elementsOnRight = 0;
         this.elementsOnLeft = 0;
         this.elements = null;
@@ -20,6 +20,8 @@ class Category extends Component {
         this.changeArrowVisiblity = this.changeArrowVisiblity.bind(this);
         this.scrollRight = this.scrollRight.bind(this);
         this.scrollLeft = this.scrollLeft.bind(this);
+        this.onVideoExpanded = this.onVideoExpanded.bind(this);
+        this.closeVideoExpand = this.closeVideoExpand.bind(this);
     }
 
 
@@ -86,11 +88,31 @@ class Category extends Component {
         this.setState({tranlateX: ((this.state.tranlateX+tranlationX))});
     }
 
+    closeVideoExpand(e){
+        this.setState({expandedVideoId:0, selectedVideo: {}})
+    }
+
+    onVideoExpanded(video){
+        this.setState({expandedVideoId: video.id, selectedVideo: video});
+    }
+
     render() {
         if(!this.props.category.title || !this.props.videos) return null;
         const styles = { 
             transform: `translate(${this.state.tranlateX}px)` 
         };
+        
+        const selectedVideo = {contentRating: "PG-13",
+        createdAt: "2020-06-07T02:41:00.809Z",
+        description: "Mission: Impossible is a series of American action spy films both based on and a follow-on from the television series of the same name created by Bruce Geller. The series is co-produced by and stars Tom Cruise, whose character is Ethan Hunt, an agent of the Impossible Missions Force.",
+        id: 44,
+        runtime: 5400,
+        thumbnailUrl: "https://i.pinimg.com/236x/98/a9/86/98a986ed1761a2b11990912fa1921983.jpg",
+        title: "Mission: Impossible - Fallout",
+        videoRating: "7",
+        videoType: "movies",
+        videoUrl: "https://media.w3.org/2010/05/sintel/trailer_hd.ogv",
+        year: 2018 }
         return (
             <div className="category-container">
                 <h1 className="category-title">{this.props.category.title}</h1>
@@ -100,12 +122,35 @@ class Category extends Component {
                         {
                             this.props.videos.map((video, idx)=>{
                                 return (
-                                        <VideoConatiner video={video} key={idx}/>
+                                        <VideoConatiner 
+                                        video={video} 
+                                        key={idx} 
+                                        onVideoExpanded={this.onVideoExpanded}
+                                        expandedVideoId={this.state.expandedVideoId}
+                                         />
                                 )
                             })
                         }
                     </div>
                     <span className={`video-carousel-right video-carousel-arrow ${!this.state.arrows ? "hidden" : ""}`} onClick={this.scrollRight}><FontAwesomeIcon icon={faChevronRight}/></span>
+                </div>
+                <div className={!this.state.expandedVideoId ? "hidden" : "category-video-details-conatiner"}>
+                        <div className="category-video-details">
+                            <h1 className="category-video-details-title">{selectedVideo.title}</h1>
+                            <span className="category-video-details-content-rating">{selectedVideo.contentRating}</span>
+                            <p className="category-video-details-desc">{selectedVideo.description}</p>
+                            <div className="category-video-details-buttons">
+                                <button className="category-video-play"><FontAwesomeIcon className="icon-right-margin" icon={faPlay}/>Play</button>
+                                <button className="category-video-add-to-list"><FontAwesomeIcon className="icon-right-margin" icon={faPlus}/>My List</button>
+                            </div>
+                        </div>
+                        <div className="category-video-gradient">
+
+                        </div>
+                        <div className="category-video-player">
+                            <video poster={selectedVideo.thumbnailUrl} src={selectedVideo.videoUrl} autoPlay muted loop/>
+                        </div>
+                        <span className="cross" onClick={this.closeVideoExpand}><FontAwesomeIcon icon={faTimesCircle} size="lg"/></span>
                 </div>
             </div>
         );
