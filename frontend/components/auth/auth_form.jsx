@@ -113,7 +113,7 @@ class AuthForm extends Component {
                     <button className="button-red auth-form-button" id="auth-button">{formType}</button>
                 </form>
                 <span className="auth-form-route-text">
-                    {formType == SIGN_UP ? 'New to FriendsFlix?' : 'Already have account?'} 
+                    {formType == SIGN_UP ? 'New to NetFlix?' : 'Already have account?'} 
                     <Link className="auth-from-text" onMouseDown={this.handleOnLinkMouseDown} to={formType == SIGN_UP ? ROUTE_SIGNIN: ROUTE_SIGNUP}>{`${formType == SIGN_UP ? SIGN_IN : SIGN_UP} Now`}</Link>
                 </span>
 

@@ -78,7 +78,8 @@ class Video extends Component {
         if(!this.props.video) return null;
         const {video} = this.props;
         const expandedVideoId = this.props.expandedVideoId;
-        const color = "rgba(226, 226, 226, 0.719)"
+        // const color = "rgba(226, 226, 226, 0.719)"
+        const color = "white";
         return (
             <div className={expandedVideoId === 0 ? "video-container" : 
             expandedVideoId === video.id ? "video-border": 

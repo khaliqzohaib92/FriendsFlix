@@ -14,7 +14,7 @@ const SplashHeader = (props)=>{
                             <img className="splash-nav-logo" src={window.logo} alt="FriendsFlix logo"/>
                         </a>
                         <div className={`splash-nav-link-container ${!showButtons ? 'hidden' : ''}`}>
-                            <Link to={ROUTE_SIGNUP} className="splash-nav-signup button-red">Sign Up</Link>
+                            <Link to={ROUTE_SIGNUP} className="splash-nav-signup button-red hidden">Sign Up</Link>
                             <Link to={ROUTE_SIGNIN} className="splash-nav-signin button-red">Sign In</Link>
                         </div>
                     </nav>
