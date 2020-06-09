@@ -12,7 +12,7 @@ class TopVideo extends Component {
 
     changeVolState(e){
         e.preventDefault();
-        var video=document.getElementById("top-video");
+        const video=document.getElementById("top-video");
         video.muted = !video.muted;
         this.setState({muted: video.muted});
     }

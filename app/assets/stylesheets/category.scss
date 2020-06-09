@@ -1,5 +1,6 @@
-.categories-videos-container{
-    overflow: hidden;
+.category-video-main{
+    display: flex;
+    align-items: center;
 }
 
 .category-container{
@@ -17,5 +18,26 @@
 .category-videos-container{
     display: flex;
     flex-direction: row;
+    transition: transform 0.7s ease;
+
+}
+
+.video-carousel-left{
+    left: 0;
+}
+.video-carousel-arrow{
+    height: 9vw;
+    background: #00000069;
+    display: flex;
     align-items: center;
+    border-top-left-radius: 3px;
+    padding: 0 10px;
+    border-bottom-left-radius: 3px;
+    position: absolute;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.video-carousel-right{
+    right: 0;
 }

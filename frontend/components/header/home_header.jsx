@@ -6,10 +6,11 @@ import {withRouter} from 'react-router-dom';
 import {ROUTE_PROFILES, ROUTE_HOME} from '../../util/route_utils'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faSearch, faSortDown} from '@fortawesome/free-solid-svg-icons';
-import {removeCurrentProfile} from '../../actions/session/session_actions'
+import {fetchProfiles} from '../../actions/profile/profile_action'
 
 import {CURRENT_PROFILE_ID} from '../../util/constants'
 import { signout } from '../../actions/session/session_actions';
+import { randomColor } from '../../util/util';
 
 class HomeHeader extends React.Component {
     constructor(props){
@@ -19,6 +20,10 @@ class HomeHeader extends React.Component {
         this.onSearchBarUnfocus = this.onSearchBarUnfocus.bind(this);
         this.signout = this.signout.bind(this);   
         this.openManageProfile = this.openManageProfile.bind(this);
+    }
+
+    componentDidMount(){
+        this.props.fetchProfiles();
     }
 
     showSearchBar(e){
@@ -58,7 +63,7 @@ class HomeHeader extends React.Component {
     }
 
     render(){
-        // 
+    //    debugger
         return (
             <header>
                 <nav className="splash-nav">
@@ -81,7 +86,7 @@ class HomeHeader extends React.Component {
                         </div>
                         
                         <span className="home-nav-profile-pic">
-                            <span><p>D</p></span>
+                            <span style={{backgroundColor: this.props.currentProfile.color }}><p>{this.props.currentProfile.title[0]}</p></span>
                             <FontAwesomeIcon className="home-nav-profile-down" icon={faSortDown}/>
                         </span>
                         <div className="profile-drop-down">
@@ -100,14 +105,15 @@ class HomeHeader extends React.Component {
 }
 
 const mSTP = (state)=>{
+    let id = state.session[CURRENT_PROFILE_ID];
     return {
-        currentProfileId: state.session[CURRENT_PROFILE_ID],
+        currentProfile: state.entities.profiles[id] ? state.entities.profiles[id] : {title: "D", color : "rgba(255, 255, 255, 0)"},
     }
 }
 
 const mDTP = (dispatch)=>{
     return{
-        removeCurrentProfile: ()=>dispatch(removeCurrentProfile()),
+        fetchProfiles: ()=>dispatch(fetchProfiles()),
         signout:()=>dispatch(signout()),
     }
 }
