@@ -31,7 +31,8 @@ const Header = (props) => {
         <Route path={ROUTE_SPLASH}  render={
             ()=>{
                 // 
-                return !props.loggedIn ? <SplashHeader/> : (props.profileSelected && !path.includes(ROUTE_PROFILES)) ? <HomeHeader/> : <ProfileHeader/>
+                return !props.loggedIn ? <SplashHeader/> : 
+                (props.profileSelected && !path.includes(ROUTE_PROFILES)) ? <HomeHeader/> : <ProfileHeader/>
             }
         }/> 
     </>

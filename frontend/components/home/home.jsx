@@ -7,19 +7,21 @@ class Home extends Component {
 
     constructor(props){
         super(props);
+        this.state = {update: false};
 
     }
 
     componentDidMount(){
-        this.props.fetchVideos();
+        this.props.fetchVideos().then(
+            ()=>{this.setState({update: true})}
+        );
         this.props.fetchCategories();
     }
 
     render() {
-        
         return (
             <div>
-                <TopVideoContainer videos={this.props.videos} type={TYPE_MOVIES}/>
+                <TopVideoContainer type={TYPE_MOVIES} update={this.state.update}/>
                 <div className="categories-videos-container">
                     {
                         this.props.categories.map((category)=>{

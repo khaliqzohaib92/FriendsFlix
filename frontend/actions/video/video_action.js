@@ -4,6 +4,7 @@ import {errorMessages} from '../../util/util'
 export const RECEIVE_VIDEOS = "RECEIVE_VIDEOS";
 export const RECEIVE_VIDEO = "RECEIVE_VIDEO";
 export const RECEIVE_VIDEO_ERRORS = "RECEIVE_VIDEO_ERRORS";
+import {filterVideos} from '../../util/util'
 
 const receiveVideos = (videos)=>{
     return {
@@ -31,13 +32,13 @@ const receiveVideoErrors=(errors)=>{
 export const fetchVideos = ()=>dispatch=>{
     return VideoApiUtlis.fetchVideos()
     .then(
-        videos=>dispatch(receiveVideos(videos)),
+        videos=>dispatch(receiveVideos(filterVideos(videos))),
         errors=>dispatch(receiveVideoErrors(errorMessages(errors))));
 }
 
 export const fetchVideo = (videoId)=>dispatch=>{
     return VideoApiUtlis.fetchVideo(videoId)
     .then(
-        video=>dispatch(receiveVideo(video)),
+        video=>dispatch(receiveVideo(filterVideos(video))),
         errors=>dispatch(receiveVideoErrors(errorMessages(errors))));
 }

@@ -2,12 +2,17 @@ import React, { Component } from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faPlay, faInfoCircle} from '@fortawesome/free-solid-svg-icons'
+import VideoDetails from '../video/video_details'
+import { editVideoPlayRoute } from '../../../util/route_utils';
+import {Link} from 'react-router-dom';
 
 class TopVideo extends Component {
     constructor(props){
         super(props);
-        this.state={muted: true};
+        this.state={muted: true, expandedVideoId: undefined};
         this.changeVolState = this.changeVolState.bind(this);
+        this.showDetails = this.showDetails.bind(this);
+        this.closeVideoExpand = this.closeVideoExpand.bind(this);
     }
 
     changeVolState(e){
@@ -19,25 +24,35 @@ class TopVideo extends Component {
 
     componentDidUpdate(prevProps){
         //fetch top video full details from server
-        if(this.props.topVideo && !prevProps.topVideo)
+        if(!this.props.topVideo.description){
             this.props.fetchVideo(this.props.topVideo.id);
+        }
+    }
+
+    showDetails(e){
+        e.preventDefault();
+        this.setState({expandedVideoId: this.props.topVideo.id});
+    }
+
+    closeVideoExpand(e){
+        this.setState({expandedVideoId: undefined});
     }
 
     render() {
+
         if(!this.props.topVideo) return (
             <div className="tops-video-video-main"></div>
         );
         const topVideo = this.props.topVideo;
-        const test = "https://media.w3.org/2010/05/sintel/trailer_hd.ogv"
         //
         return (
-            <div>
-                <div className="tops-video-video-main">
+            <>
+                <div className={this.state.expandedVideoId ? "hidden" : "tops-video-video-main"}>
                     <div className="top-video-video-container">
                         <video 
                         id="top-video"
                         className="top-video-video"
-                        src={test}
+                        src={this.state.expandedVideoId ? "" : topVideo.videoUrl}
                         autoPlay="autoplay" muted loop/>   
                     </div>
                     <div className="top-video-info-container">
@@ -45,8 +60,12 @@ class TopVideo extends Component {
                     <p className="top-video-desc">{topVideo.description}...</p>
                     <div className="top-video-button-conatiner">
                         <div className="top-video-buttons">
-                            <button className="top-video-play"><FontAwesomeIcon className="icon-right-margin" icon={faPlay}/>Play</button>
-                            <button className="top-video-more-info"><FontAwesomeIcon className="icon-right-margin" icon={faInfoCircle}/>More Info</button>
+                            <Link to={editVideoPlayRoute(topVideo.id)} className="top-video-play">
+                                <FontAwesomeIcon className="icon-right-margin" icon={faPlay}/>Play
+                            </Link>
+                            <button className="top-video-more-info" onClick={this.showDetails}>
+                                <FontAwesomeIcon className="icon-right-margin" icon={faInfoCircle}/>More Info
+                            </button>
                         </div>
                         <div className="top-video-sound">
                             <div className={`top-video-volume ${this.state.muted ? "mute" : "unmute"}`} onClick={this.changeVolState}></div>
@@ -55,8 +74,10 @@ class TopVideo extends Component {
                     </div>
                  </div>
                 </div>  
-                
-            </div>
+                <div className={!this.state.expandedVideoId ? "hidden" : "top-video-details"}>
+                    <VideoDetails expandedVideoId={this.state.expandedVideoId} selectedVideo={topVideo} closeVideoExpand={this.closeVideoExpand}/>
+                </div>
+            </>
         );
     }
 }

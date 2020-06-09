@@ -13,7 +13,11 @@ export const ROUTE_PROFILES_FORM = '/profiles/add';
 export const ROUTE_PROFILES_FORM_EDIT = '/profiles/:id/edit';
 export const ROUTE_PROFILES_MANAGE = '/profiles/manage';
 export const ROUTE_HOME = '/home';
+export const ROUTE_PLAY_VIDEO = "/play/:id"
 
+export const editVideoPlayRoute = (id)=>{
+  return `/play/${id}`;
+}
 
 export const editProfileRoute = (profileId)=>{
   return `/profiles/${profileId}/edit`;

@@ -13,7 +13,7 @@ import {
   ROUTE_PROFILES_FORM_EDIT, 
   ROUTE_PROFILES_FORM, 
   ROUTE_PROFILES_MANAGE, 
-  ProtectedRoute, AuthRoute, ROUTE_HOME
+  ProtectedRoute, AuthRoute, ROUTE_HOME, ROUTE_PLAY_VIDEO
 } from "../../util/route_utils";
 
 import GreetingContainer from "../splash/greeting_container";
@@ -22,7 +22,7 @@ import Footer from "../footer/footer";
 import ProfileFormContainer from "../profiles/profile_form_container";
 import ProfileManage from "../profiles/manage/profile_manage";
 import HomeContainer from "../home/home_container";
-
+import VideoPlayer from '../home/play/video_player'
 
 
 const App = () => (
@@ -38,6 +38,7 @@ const App = () => (
         <ProtectedRoute   path={ROUTE_PROFILES_FORM_EDIT} component={ProfileFormContainer}/> 
         <ProtectedRoute   path={ROUTE_PROFILES_MANAGE} component={ProfileManage}/> 
         <ProtectedRoute   path={ROUTE_HOME} component={HomeContainer}/> 
+        <ProtectedRoute   path={ROUTE_PLAY_VIDEO} component={VideoPlayer}/> 
       </Switch>
     </section>
     <Footer/>

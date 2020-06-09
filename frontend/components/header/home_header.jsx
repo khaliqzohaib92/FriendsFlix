@@ -10,7 +10,6 @@ import {fetchProfiles} from '../../actions/profile/profile_action'
 
 import {CURRENT_PROFILE_ID} from '../../util/constants'
 import { signout } from '../../actions/session/session_actions';
-import { randomColor } from '../../util/util';
 
 class HomeHeader extends React.Component {
     constructor(props){

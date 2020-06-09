@@ -1,0 +1,33 @@
+.video-player-conatainer{
+    background-color: black;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.video-player-conatainer video{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.video-player-button{
+    position: absolute;
+    left: 35px;
+    top: 30px;
+    cursor: pointer;
+}
+
+.video-player-button{
+    transition: all 0.3s ease-in-out;
+}
+
+.video-player-button:hover{
+    transform: scale(1);
+}
