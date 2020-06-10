@@ -11,4 +11,4 @@ const mDTP =  (dispatch)=>{
     }
 }
 
-export default withRouter(connect(null, mDTP)(Category));
+export default withRouter(connect(null, mDTP)(Category)); 
