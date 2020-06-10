@@ -20,7 +20,7 @@ export const filterVideosByCategory = (videos, videoIds, type)=>{
     const videosArr = [];
     for (let i = 0; i < videoIds.length; i++) {
         let video = videos[videoIds[i]];
-        // if(!video) return undefined;
+        if(!video) continue;
         if((video.videoType === type || type === TYPE_ALL) && videoIds.includes(video.id)){
             videosArr.push(video);
         }

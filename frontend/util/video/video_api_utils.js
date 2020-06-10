@@ -1,8 +1,3 @@
-export const fetchVideos= ()=>{
-    return $.ajax({
-        url: 'api/videos'
-    });
-};
 
 export const fetchVideo = (videoId)=>{
     return $.ajax({
@@ -10,8 +5,10 @@ export const fetchVideo = (videoId)=>{
     })
 };
 
-export const fetchVideoByType = (type)=>{
+export const fetchVideosByGenre = (genreId, type)=>{
     return $.ajax({
-        url: `api/videos/?type=${type}`
+        url: type ? 
+        `api/genres/${genreId}/videos/?type=${type}` : 
+        `api/genres/${genreId}/videos`
     })
 };

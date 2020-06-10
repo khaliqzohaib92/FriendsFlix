@@ -16,20 +16,17 @@ class Home extends Component {
 
     componentDidMount(){
         let promise;
-        if(this.props.genres.length ==0){
-            this.props.fetchGenres();
-        }
-        promise = this.props.fetchVideos();
-        promise.then(
-            ()=>{this.setState({update: true})}
-        );
+        this.props.fetchGenres()
+        .then(()=>{
+            let type = findType(this.props.location.pathname);
+            promise = this.props.fetchVideosByGenre(this.props.genres[0].id,
+               type  == TYPE_ALL ? undefined : type );
+            promise.then(
+                ()=>{this.setState({update: true})}
+            );
+        });
         
-
-        if(this.props.categories.length ==0){
-            this.props.fetchCategories();
-        }
-
-        
+        this.props.fetchCategories(); 
     }
 
 
@@ -37,7 +34,7 @@ class Home extends Component {
         if(!this.state.update) return null;
         return (
             <div>
-                <TopVideoContainer videos={this.props.videos} update={this.state.update}/>
+                <TopVideoContainer videos={this.props.videos} update={this.state.update} genre={this.props.genres[0]}/>
                 <div className="categories-videos-container">
                     {
                         this.props.categories.map((category)=>{

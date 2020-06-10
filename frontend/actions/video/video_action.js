@@ -29,17 +29,9 @@ const receiveVideoErrors=(errors)=>{
 
 //thunk action creators
 
-export const fetchVideos = ()=>dispatch=>{
+export const fetchVideosByGenre = (genreId, type)=>dispatch=>{
     //debugger
-    return VideoApiUtlis.fetchVideos()
-    .then(
-        videos=>dispatch(receiveVideos(filterVideos(videos))),
-        errors=>dispatch(receiveVideoErrors(errorMessages(errors))));
-}
-
-export const fetchVideosByType = (type)=>dispatch=>{
-    //debugger
-    return VideoApiUtlis.fetchVideoByType(type)
+    return VideoApiUtlis.fetchVideosByGenre(genreId, type)
     .then(
         videos=>dispatch(receiveVideos(filterVideos(videos))),
         errors=>dispatch(receiveVideoErrors(errorMessages(errors))));

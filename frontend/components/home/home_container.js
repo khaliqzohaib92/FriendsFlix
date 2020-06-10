@@ -1,7 +1,7 @@
 import {connect} from 'react-redux';
 import Home from './home'
 import { CURRENT_PROFILE_ID } from '../../util/constants';
-import {fetchVideos, fetchVideosByType} from '../../actions/video/video_action'
+import {fetchVideosByGenre} from '../../actions/video/video_action'
 import {fetchCategories} from '../../actions/category/category_action'
 import {withRouter} from 'react-router-dom'
 import { fetchGenres } from '../../actions/genre/genre_action';
@@ -17,10 +17,9 @@ const mSTP = (state)=>{
 
 const mDTP = (dispatch)=>{
     return{
-        fetchVideos:()=>dispatch(fetchVideos()),
         fetchCategories:()=>dispatch(fetchCategories()),
         fetchGenres:()=>dispatch(fetchGenres()),
-        fetchVideosByType:(type)=>dispatch(fetchVideosByType(type)),
+        fetchVideosByGenre:(genreId, type)=>dispatch(fetchVideosByGenre(genreId, type)),
     };
 };
 

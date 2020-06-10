@@ -5,6 +5,9 @@ import {faPlay, faInfoCircle} from '@fortawesome/free-solid-svg-icons'
 import VideoDetails from '../video/video_details'
 import { editVideoPlayRoute } from '../../../util/route_utils';
 import {Link} from 'react-router-dom';
+import {findType} from '../../../util/util'
+import { TYPE_ALL } from '../../../util/constants';
+
 
 class TopVideo extends Component {
     constructor(props){
@@ -22,19 +25,24 @@ class TopVideo extends Component {
         this.setState({muted: video.muted});
     }
 
-    componentDidMount(){
-        //fetch top video full details from server
-        // debugger
+    fetchData(){
+        if(!this.props.topVideo){
+            let type = findType(this.props.location.pathname);
+            this.props.fetchVideosByGenre(this.props.genre.id,
+               type  == TYPE_ALL ? undefined : type );
+        }else
         if(!this.props.topVideo.description){
             this.props.fetchVideo(this.props.topVideo.id);
         }
     }
 
+    componentDidMount(){
+        //fetch top video full details from server
+      this.fetchData();
+    }
+
     componentDidUpdate(prevProps){
-        // debugger
-        if(!this.props.topVideo.description){
-            this.props.fetchVideo(this.props.topVideo.id);
-        }
+        this.fetchData();
     }
 
     showDetails(e){

@@ -1,14 +1,16 @@
 class Api::VideosController < ApplicationController
-    before_action :ensure_signed_in, only: [:index, :show]
+    # before_action :ensure_signed_in, only: [:index, :show]
 
     def index
-        @videos = (params[:type]) ? 
-            Video.find_all_by_type(params[:type]) :
-            (params[:genre_id] && params[:type]) ? 
-            Video.find_all_by_genre_id_and_type(params[:genre_id], params[:type]) :
-            Video.find_all
-
-        render :index
+        if params[:genre_id] && params[:type]
+            @videos = Video.find_all_by_genre_id_and_type(params[:genre_id], params[:type])
+            render :index
+        elsif params[:genre_id]
+            @videos = Video.find_all_by_genre(params[:genre_id])
+            render :index
+        else
+            render json: {}
+        end
     end
 
     def show
