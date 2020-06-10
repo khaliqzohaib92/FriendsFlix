@@ -9,3 +9,9 @@ export const fetchVideo = (videoId)=>{
         url: `api/videos/${videoId}`
     })
 };
+
+export const fetchVideoByType = (type)=>{
+    return $.ajax({
+        url: `api/videos/?type=${type}`
+    })
+};

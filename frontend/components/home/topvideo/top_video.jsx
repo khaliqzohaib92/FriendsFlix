@@ -22,8 +22,16 @@ class TopVideo extends Component {
         this.setState({muted: video.muted});
     }
 
-    componentDidUpdate(prevProps){
+    componentDidMount(){
         //fetch top video full details from server
+        // debugger
+        if(!this.props.topVideo.description){
+            this.props.fetchVideo(this.props.topVideo.id);
+        }
+    }
+
+    componentDidUpdate(prevProps){
+        // debugger
         if(!this.props.topVideo.description){
             this.props.fetchVideo(this.props.topVideo.id);
         }

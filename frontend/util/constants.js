@@ -8,6 +8,7 @@ export const CURRENT_PROFILE_ID = "currentProfileId";
 export const CURRENT_USER_ID = "currentUserId";
 export const TYPE_MOVIES = "movies";
 export const TYPE_TV_SHOWS = "tvshows"
+export const TYPE_ALL = "all"
 export const DEVELOPMENT = "DEVELOPMENT"
 export const TEST = "TEST"
 
