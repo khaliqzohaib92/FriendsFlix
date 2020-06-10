@@ -2,22 +2,19 @@ import React, { Component } from 'react';
 import VideoConatiner from '../video/video_container';
 
 
+import {filterVideosByCategory} from '../../../util/selectors/selector'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faChevronLeft, faChevronRight} from '@fortawesome/free-solid-svg-icons'
 import VideoDetails from '../video/video_details';
+import { findType } from '../../../util/util';
 
 class Category extends Component {
 
     constructor(props){
         super(props);
-
         this.state={arrows: false, tranlateX: 0, expandedVideoId: 0, selectedVideo:{}};
-        this.elementsOnRight = 0;
-        this.elementsOnLeft = 0;
-        this.elements = null;
-        this.totalElements = null;
-        this.feasibleElments = null;
-        this.elementWidth = 0;
+
+        this.init();
         this.changeArrowVisiblity = this.changeArrowVisiblity.bind(this);
         this.scrollRight = this.scrollRight.bind(this);
         this.scrollLeft = this.scrollLeft.bind(this);
@@ -25,6 +22,24 @@ class Category extends Component {
         this.closeVideoExpand = this.closeVideoExpand.bind(this);
     }
 
+    init(){
+        this.elementsOnRight = 0;
+        this.elementsOnLeft = 0;
+        this.elements = null;
+        this.totalElements = null;
+        this.feasibleElments = null;
+        this.elementWidth = 0;
+    }
+
+    componentDidUpdate(prevprops){
+        if(this.props.location.pathname!= prevprops.location.pathname){
+            this.init();
+            this.setState({tranlateX: 0});
+            this.setState({arrows:false});
+            this.setState({expandedVideoId: 0});
+            this.setState({selectedVideo: {}});
+        }
+    }
 
     changeArrowVisiblity(e){
         this.initDefaultValues();
@@ -63,7 +78,7 @@ class Category extends Component {
         }
 
         //set state with updated translation.
-        this.setState({tranlateX: (-(this.state.tranlateX+tranlationX))});
+        this.setState({tranlateX: ((this.state.tranlateX-tranlationX))});
     }
 
     
@@ -103,6 +118,8 @@ class Category extends Component {
             transform: `translate(${this.state.tranlateX}px)` 
         };
         
+        const videos = filterVideosByCategory(this.props.videos, this.props.category.videoIds, findType(this.props.location.pathname));
+        //debugger
         const selectedVideo = this.state.selectedVideo;
         return (
             <div className="category-container">
@@ -111,7 +128,7 @@ class Category extends Component {
                     <span className={`video-carousel-left video-carousel-arrow ${!this.state.arrows ? "hidden" : ""}`} onClick={this.scrollLeft}><FontAwesomeIcon icon={faChevronLeft}/></span>
                     <div className={`category-videos-container`} id={this.props.category.title+"main"} style={styles}>
                         {
-                            this.props.videos.map((video, idx)=>{
+                            videos.map((video, idx)=>{
                                 return (
                                         <VideoConatiner 
                                         video={video} 

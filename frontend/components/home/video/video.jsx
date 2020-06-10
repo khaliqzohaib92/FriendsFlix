@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-
+import {Link} from 'react-router-dom';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faPlayCircle, faChevronDown, faPlusCircle, faVolumeMute, faVolumeUp} from '@fortawesome/free-solid-svg-icons'
+import { editVideoPlayRoute } from '../../../util/route_utils';
 
 class Video extends Component {
     constructor(props){
@@ -28,7 +29,7 @@ class Video extends Component {
     }
 
     changeVolume(e) {
-        // debugger
+        // //debugger
         const videoElement = document.getElementById("cat-video"+this.uniqueId);
         videoElement.muted = !videoElement.muted;
         this.setState({muted: videoElement.muted});
@@ -105,9 +106,9 @@ class Video extends Component {
                     <div className={`${!this.state.toggleVideo || expandedVideoId === video.id ? "hidden" : "video-detail"}` }>
                         <div className="video-detail-top">
                             <div className="video-detail-sub-1">
-                                <span className="video-play" onClick={this.playVideo}>
+                                <Link to={editVideoPlayRoute(video.id)} className="video-play" onClick={this.playVideo}>
                                     <FontAwesomeIcon icon={faPlayCircle} size="lg" color={color}/>
-                                </span>
+                                </Link>
                                 <h1 className="video-title">
                                     {video.title ? video.title.split("-")[0] : ""}
                                 </h1>

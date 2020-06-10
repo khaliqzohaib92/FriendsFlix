@@ -2,7 +2,9 @@ class Api::VideosController < ApplicationController
     before_action :ensure_signed_in, only: [:index, :show]
 
     def index
-        @videos = Video.all
+        @videos = (params[:type]) ? 
+        Video.where(video_type: params[:type]).includes(:categories): 
+        Video.all.includes(:categories)
         render :index
     end
 
