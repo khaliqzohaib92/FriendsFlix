@@ -3,13 +3,16 @@ class Api::VideosController < ApplicationController
 
     def index
         @videos = (params[:type]) ? 
-        Video.where(video_type: params[:type]).includes(:categories): 
-        Video.all.includes(:categories)
+            Video.find_all_by_type(params[:type]) :
+            (params[:genre_id] && params[:type]) ? 
+            Video.find_all_by_genre_id_and_type(params[:genre_id], params[:type]) :
+            Video.find_all
+
         render :index
     end
 
     def show
-        @video = Video.find_by(id: params[:id])
+        @video = Video.find_by_id(params[:id])
         if @video
             render :show
         else

@@ -14,3 +14,5 @@ if full_details
     json.createdAt video.created_at
 end
 json.categoryIds video.categories.ids 
+json.genreIds video.genres.ids 
+

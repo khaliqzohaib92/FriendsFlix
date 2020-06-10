@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy]
     resources :profiles, except: [:new, :edit] 
     resources :videos, only: [:index, :show]
-    resources :genre, only:[:index] do 
+    resources :genres, only:[:index] do 
       resources :videos, only: [:index]
     end
     resources :mylist, only:[:index] do 

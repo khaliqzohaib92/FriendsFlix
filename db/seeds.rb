@@ -10,6 +10,8 @@ User.destroy_all
 Video.destroy_all
 Category.destroy_all
 Categorieslink.destroy_all
+Genre.destroy_all
+Genreslink.destroy_all
 
 demoUser = User.create(email:"demo@gmail.com", password: "demo123");
 
@@ -250,3 +252,110 @@ lucifer.video_url.attach(io: lucifer_video, filename: "fier.mp4")
 the_flash.video_url.attach(io: the_flash_video, filename: "the.mp4")
 prison_break.video_url.attach(io: prison_break_video, filename: "break.mp4")
 lost_in_space.video_url.attach(io: lost_in_space_video, filename: "space.mp4")
+
+
+# seeding genre
+
+all_genre = Genre.create(name:"All")
+horror_genre = Genre.create(name:"Horror")
+comdey_genre = Genre.create(name:"Comdey")
+action_genre = Genre.create(name:"Action")
+thriller_genre = Genre.create(name:"Thriller")
+crime_genre = Genre.create(name:"Crime")
+scifi_genre = Genre.create(name:"Science fiction")
+
+
+#movies
+Genreslink.create(video_id: mission_impossible.id , genre_id: all_genre.id)
+Genreslink.create(video_id: superfly.id , genre_id: all_genre.id)
+Genreslink.create(video_id: boundries.id , genre_id: all_genre.id)
+Genreslink.create(video_id: deadpool_2.id , genre_id: all_genre.id)
+Genreslink.create(video_id: f4.id , genre_id: all_genre.id)
+Genreslink.create(video_id: bourne.id , genre_id: all_genre.id)
+Genreslink.create(video_id: rambo.id , genre_id: all_genre.id)
+Genreslink.create(video_id: volition.id , genre_id: all_genre.id)
+Genreslink.create(video_id: recovery.id , genre_id: all_genre.id)
+Genreslink.create(video_id: dictator.id , genre_id: all_genre.id)
+Genreslink.create(video_id: noble.id , genre_id: all_genre.id)
+Genreslink.create(video_id: xxx.id , genre_id: all_genre.id)
+
+#tvshows
+Genreslink.create(video_id: arrow.id, genre_id: all_genre.id)
+Genreslink.create(video_id: legacies.id, genre_id: all_genre.id)
+Genreslink.create(video_id: lucifer.id, genre_id: all_genre.id)
+Genreslink.create(video_id: the_flash.id, genre_id: all_genre.id)
+Genreslink.create(video_id: prison_break.id, genre_id: all_genre.id)
+Genreslink.create(video_id: lost_in_space.id, genre_id: all_genre.id)
+
+#movies
+Genreslink.create(video_id: volition.id , genre_id: horror_genre.id)
+Genreslink.create(video_id: recovery.id, genre_id: horror_genre.id)
+
+#tvshows
+Genreslink.create(video_id: arrow.id, genre_id: horror_genre.id)
+Genreslink.create(video_id: lucifer.id, genre_id: horror_genre.id)
+
+
+#movies
+Genreslink.create(video_id: deadpool_2.id , genre_id: comdey_genre.id)
+Genreslink.create(video_id: dictator.id, genre_id: comdey_genre.id)
+Genreslink.create(video_id: f4.id, genre_id: comdey_genre.id)
+Genreslink.create(video_id: rambo.id, genre_id: comdey_genre.id)
+
+#tvshows
+Genreslink.create(video_id: the_flash.id, genre_id: comdey_genre.id)
+Genreslink.create(video_id: legacies.id, genre_id: comdey_genre.id)
+
+
+#movies
+Genreslink.create(video_id: mission_impossible.id , genre_id: action_genre.id)
+Genreslink.create(video_id: deadpool_2.id, genre_id: action_genre.id)
+Genreslink.create(video_id: f4.id, genre_id: action_genre.id)
+Genreslink.create(video_id: bourne.id, genre_id: action_genre.id)
+Genreslink.create(video_id: rambo.id, genre_id: action_genre.id)
+Genreslink.create(video_id: xxx.id, genre_id: action_genre.id)
+
+#tvshows
+Genreslink.create(video_id: lucifer.id, genre_id: action_genre.id)
+Genreslink.create(video_id: arrow.id, genre_id: action_genre.id)
+Genreslink.create(video_id: the_flash.id, genre_id: action_genre.id)
+Genreslink.create(video_id: prison_break.id, genre_id: action_genre.id)
+
+#movies
+Genreslink.create(video_id: superfly.id , genre_id: thriller_genre.id)
+Genreslink.create(video_id: boundries.id, genre_id: thriller_genre.id)
+Genreslink.create(video_id: f4.id, genre_id: thriller_genre.id)
+Genreslink.create(video_id: xxx.id, genre_id: thriller_genre.id)
+Genreslink.create(video_id: recovery.id, genre_id: thriller_genre.id)
+Genreslink.create(video_id: volition.id, genre_id: thriller_genre.id)
+Genreslink.create(video_id: rambo.id, genre_id: thriller_genre.id)
+
+#tvshows
+Genreslink.create(video_id: arrow.id, genre_id: thriller_genre.id)
+Genreslink.create(video_id: lucifer.id, genre_id: thriller_genre.id)
+Genreslink.create(video_id: prison_break.id, genre_id: thriller_genre.id)
+Genreslink.create(video_id: the_flash.id, genre_id: thriller_genre.id)
+Genreslink.create(video_id: lost_in_space.id, genre_id: thriller_genre.id)
+
+
+
+#movies
+Genreslink.create(video_id: xxx.id , genre_id: crime_genre.id)
+Genreslink.create(video_id: deadpool_2.id, genre_id: crime_genre.id)
+Genreslink.create(video_id: f4.id, genre_id: crime_genre.id)
+Genreslink.create(video_id: mission_impossible.id, genre_id: crime_genre.id)
+
+#tvshows
+Genreslink.create(video_id: arrow.id, genre_id: crime_genre.id)
+Genreslink.create(video_id: prison_break.id, genre_id: crime_genre.id)
+Genreslink.create(video_id: the_flash.id, genre_id: crime_genre.id)
+
+
+#movies
+Genreslink.create(video_id: mission_impossible.id , genre_id: scifi_genre.id)
+Genreslink.create(video_id: f4.id, genre_id: scifi_genre.id)
+Genreslink.create(video_id: deadpool_2.id, genre_id: scifi_genre.id)
+
+#tvshows
+Genreslink.create(video_id: the_flash.id, genre_id: scifi_genre.id)
+Genreslink.create(video_id: lost_in_space.id, genre_id: scifi_genre.id)

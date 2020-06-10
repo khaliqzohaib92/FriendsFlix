@@ -1,0 +1,18 @@
+# == Schema Information
+#
+# Table name: genreslinks
+#
+#  id         :bigint           not null, primary key
+#  genre_id   :integer          not null
+#  video_id   :integer          not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+one:
+  genre_id: 1
+  video_id: 1
+
+two:
+  genre_id: 1
+  video_id: 1
