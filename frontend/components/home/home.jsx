@@ -16,15 +16,10 @@ class Home extends Component {
 
     componentDidMount(){
         let promise;
-
-        //no videos in state have to fetch from
-        // if(this.type == TYPE_ALL){
-            //all type of videos
-            promise = this.props.fetchVideos();
-        // }else {
-        //     //videos of type movies or tvshows
-        //     promise = this.props.fetchVideosByType(this.type);
-        // }
+        if(this.props.genres.length ==0){
+            this.props.fetchGenres();
+        }
+        promise = this.props.fetchVideos();
         promise.then(
             ()=>{this.setState({update: true})}
         );
@@ -33,6 +28,8 @@ class Home extends Component {
         if(this.props.categories.length ==0){
             this.props.fetchCategories();
         }
+
+        
     }
 
 
