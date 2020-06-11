@@ -12,3 +12,9 @@ export const fetchVideosByGenre = (genreId, type)=>{
         `api/genres/${genreId}/videos`
     })
 };
+
+export const searchByName = (name) =>{
+    return $.ajax({
+        url: `api/videos/?q=${name.toLowerCase()}`
+    })
+}

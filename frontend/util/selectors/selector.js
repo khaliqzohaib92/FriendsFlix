@@ -31,6 +31,29 @@ export const filterVideosByCategory = (videos, videoIds, type, genreId)=>{
     return videosArr;
 }
 
+export const filterForSearch = (state ,name)=>{
+    // debugger
+    const genre = findGenreByName(state, name);
+    const videosArr = [];
+    let videos = Object.values(state.entities.videos);
+    for (let i = 0; i < videos.length; i++) {
+        if(videos[i].title.toLowerCase().includes(name.toLowerCase()) ||
+         (genre && videos[i].genreIds.includes(genre.id)))
+        {            
+            videosArr.push(videos[i]);
+        }
+    }
+
+    return videosArr;
+}
+
+function findGenreByName(state, name){
+    for (let [id, genre] of Object.entries(state.entities.genres)) {
+       if(genre.name.toLowerCase().includes(name.toLowerCase()))
+        return genre;
+    }
+    return undefined;
+}
 // export const filterVideosByType = (videos, type)=>{
 //     const videosArr = Object.values(videos);
 //     let newVideoArr = [];

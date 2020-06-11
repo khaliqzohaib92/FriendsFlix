@@ -12,7 +12,7 @@ class VideoDetails extends Component {
         const closeVideoExpand = this.props.closeVideoExpand;
         return (
             <div>
-                <div className={!expandedVideoId ? "hidden" : "category-video-details-conatiner"}>
+                <div className={!expandedVideoId || expandedVideoId != selectedVideo.id ? "hidden" : "category-video-details-conatiner"}>
                         <div className="category-video-details">
                             <h1 className="category-video-details-title">{selectedVideo.title}</h1>
                             <span className="category-video-details-content-rating">{selectedVideo.contentRating}</span>

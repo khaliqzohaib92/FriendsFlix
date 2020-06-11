@@ -10,14 +10,26 @@ class Home extends Component {
         this.state = {genre: undefined};
         this.type = findType(props.location.pathname);
         this.triggerRerender = this.triggerRerender.bind(this);
+        this.fetchVideos = this.fetchVideos.bind(this);
     }
 
     
 
     componentDidMount(){
-        this.props.fetchGenres()
-        .then(()=>{
-            let promise;
+        if(this.props.genres.length==0)
+            this.props.fetchGenres()
+            .then(()=>{
+                this.fetchVideos();
+            });
+        else{
+                this.fetchVideos();
+        }
+        if(this.props.categories.length==0)
+            this.props.fetchCategories(); 
+    }
+
+    fetchVideos(){
+        let promise;
             const defaultGenre = this.props.genres[0];
             let type = findType(this.props.location.pathname);
             promise = this.props.fetchVideosByGenre(defaultGenre.id,
@@ -25,9 +37,6 @@ class Home extends Component {
             promise.then(
                 ()=>{this.setState({genre: defaultGenre})}
             );
-        });
-        
-        this.props.fetchCategories(); 
     }
 
     triggerRerender(id){
@@ -43,7 +52,9 @@ class Home extends Component {
 
 
     render() {
-        if(!this.state.genre) return null;
+        if(!this.state.genre) return  (
+            <div className="placeholder"></div>
+        );
         return (
             <div>
                 <TopVideoContainer videos={this.props.videos} 

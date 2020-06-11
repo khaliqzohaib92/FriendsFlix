@@ -44,3 +44,13 @@ export const fetchVideo = (videoId)=>dispatch=>{
         errors=>dispatch(receiveVideoErrors(errorMessages(errors))));
 }
 
+export const searchByName = (name)=>dispatch=>{
+    //debugger
+    return VideoApiUtlis.searchByName(name)
+    .then(
+        video=>{
+            // debugger
+            dispatch(receiveVideos(filterVideos(video)))
+        },
+        errors=>dispatch(receiveVideoErrors(errorMessages(errors))));
+}

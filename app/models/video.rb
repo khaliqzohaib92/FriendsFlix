@@ -33,7 +33,6 @@ class Video < ApplicationRecord
 
     def self.find_all
         Video
-        .with_attached_video_url
         .with_attached_thumbnail_url
         .all
         .includes(:categories, :genres)
@@ -49,7 +48,6 @@ class Video < ApplicationRecord
     def self.find_all_by_genre(id)
         Video
         .joins(:genres_links)
-        .with_attached_video_url
         .with_attached_thumbnail_url
         .where('genreslinks.genre_id = ?', id)
         .includes(:categories, :genres)
@@ -58,9 +56,16 @@ class Video < ApplicationRecord
     def self.find_all_by_genre_id_and_type(genre_id, type)
         Video
         .joins(:genres_links)
-        .with_attached_video_url
         .with_attached_thumbnail_url
         .where('video_type= ? AND genreslinks.genre_id = ?',type, genre_id)
         .includes(:categories, :genres)
+    end
+
+    def self.search(name)
+        Video
+        .joins(:genres)
+        .with_attached_thumbnail_url
+        .where('LOWER(title) Like ? OR LOWER(genres.name) Like ?',"%#{name}%", "%#{name}%")
+        .includes(:genres)
     end
 end

@@ -3,9 +3,9 @@ import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
 
-import {ROUTE_PROFILES, ROUTE_HOME, ROUTE_MOVIES, ROUTE_TV_SHOWS} from '../../util/route_utils'
+import {ROUTE_PROFILES, ROUTE_HOME, ROUTE_MOVIES, ROUTE_TV_SHOWS, ROUTE_SEARCH, editSearchRoute} from '../../util/route_utils'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faSearch, faSortDown} from '@fortawesome/free-solid-svg-icons';
+import {faSearch, faSortDown, faTimesCircle} from '@fortawesome/free-solid-svg-icons';
 import {fetchProfiles} from '../../actions/profile/profile_action'
 
 import {CURRENT_PROFILE_ID} from '../../util/constants'
@@ -18,10 +18,11 @@ class HomeHeader extends React.Component {
     
         this.state = {searchBarVisible: false, path: this.props.location.pathname};
         this.showSearchBar = this.showSearchBar.bind(this);
-        this.onSearchBarUnfocus = this.onSearchBarUnfocus.bind(this);
+        this.hideSearchBar = this.hideSearchBar.bind(this);
         this.signout = this.signout.bind(this);   
         this.openManageProfile = this.openManageProfile.bind(this);
         this.checkNavActiveStatus = this.checkNavActiveStatus.bind(this);
+        this.searchQuery = this.searchQuery.bind(this);
     }
 
     checkNavActiveStatus(expectedRoute){
@@ -30,10 +31,16 @@ class HomeHeader extends React.Component {
 
     componentDidMount(){
         this.props.fetchProfiles();
+
+        ///show search bar if on search route
+        if(this.props.location.pathname.includes(ROUTE_SEARCH)){
+            this.showSearchBar();
+        }else{
+            this.hideSearchBar();
+        }
     }
 
     showSearchBar(e){
-        e.preventDefault();
         this.setState({searchBarVisible: true});
         
         const inputSearchElement = document.getElementById("search-input");
@@ -51,11 +58,15 @@ class HomeHeader extends React.Component {
         observer.observe(inputSearchElement, {
             attributes: true
         });
+
+        // this.props.history.push(ROUTE_SEARCH)
     }
 
-    onSearchBarUnfocus(e){
-        e.preventDefault();
+    hideSearchBar(e){
         this.setState({searchBarVisible: false});
+        document.getElementById("search-input").value="";
+        // debugger
+        this.props.history.replace(ROUTE_HOME);
     }
 
     signout(e){
@@ -73,6 +84,12 @@ class HomeHeader extends React.Component {
             this.setState({path: this.props.location.pathname});
         }
     }
+
+    searchQuery(e){
+        // debugger
+        this.props.history.push(editSearchRoute(e.target.value));
+    }
+    
 
     render(){
     //    //debugger
@@ -93,8 +110,9 @@ class HomeHeader extends React.Component {
                     
                     <div className={`home-nav-container-2 `}>
                         <div className={`home-nav-search-container  ${this.state.searchBarVisible ? "search-background" : "" }`}>
-                            <FontAwesomeIcon onClick={this.showSearchBar} className="home-nav-search-icon" icon={faSearch}/>
-                            <input className={`home-nav-search-input ${!this.state.searchBarVisible ? "hidden" : "" }`} onBlur={this.onSearchBarUnfocus} id="search-input" placeholder="Search" type="text" name="search"/>
+                            <FontAwesomeIcon  className="home-nav-search-icon" onClick={this.showSearchBar} icon={faSearch}/>
+                            <input className={`home-nav-search-input ${!this.state.searchBarVisible ? "hidden" : "" }`}   id="search-input" placeholder="Search" type="text" name="search" onChange={this.searchQuery}/>
+                            <FontAwesomeIcon onClick={this.hideSearchBar} className={!this.state.searchBarVisible ? "hidden" : "home-nav-search-close-icon" } icon={faTimesCircle}/>
                         </div>
                         
                         <span className="home-nav-profile-pic">

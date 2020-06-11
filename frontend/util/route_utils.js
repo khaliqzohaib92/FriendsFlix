@@ -16,6 +16,11 @@ export const ROUTE_HOME = '/home';
 export const ROUTE_MOVIES = '/home/movies';
 export const ROUTE_TV_SHOWS = '/home/tvshows';
 export const ROUTE_PLAY_VIDEO = "/play/:id"
+export const ROUTE_SEARCH = "/home/search/:query"
+
+export const editSearchRoute = (query)=>{
+  return `/home/search/${query}`;
+}
 
 export const editVideoPlayRoute = (id)=>{
   return `/play/${id}`;

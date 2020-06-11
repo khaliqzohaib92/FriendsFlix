@@ -1,0 +1,39 @@
+.search-result-contianer{
+    min-height: 100vh;
+    min-width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px;
+}
+
+.search-results{
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+.search-result-row{
+    margin-top: 50px;
+}
+
+.search-video-list-contianer{
+    margin-left: 3vw;
+}
+
+.nothing-found-container{
+    margin-top: 150px;
+}
+
+.nothing-found-text{
+    color: gray;
+    font-size: 0.9em;
+}
+
+.nothing-found-text li{
+    list-style: inside;
+    color: gray;
+    margin-top: 5px;
+    font-size: 0.8em;
+}
+
