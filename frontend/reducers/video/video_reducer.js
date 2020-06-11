@@ -11,7 +11,11 @@ const videoReducer = (state = _nullState, action)=>{
 
     switch(action.type){
         case RECEIVE_VIDEOS:
-            return Object.assign({}, state, action.videos);
+            const nextState = Object.assign({},state);
+            for (let [id, video] of Object.entries(action.videos)) {
+                nextState[id] = video;
+            }
+            return nextState;
         case RECEIVE_VIDEO:
             return Object.assign({}, state, action.video);
         //quick fix to remove the catergories on user logout

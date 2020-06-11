@@ -6,8 +6,8 @@ import {withRouter} from 'react-router-dom';
 import { findType } from '../../../util/util';
 const mSTP = (state, ownProps)=>{
     return {
-        topVideo: topVideo(ownProps.videos, findType(ownProps.location.pathname)),
-        genre: ownProps.genre,
+        topVideo: topVideo(ownProps.videos, findType(ownProps.location.pathname), ownProps.genre.id),
+        genres: Object.values(state.entities.genres),
     }
 }
 

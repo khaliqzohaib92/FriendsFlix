@@ -118,7 +118,7 @@ class Category extends Component {
             transform: `translate(${this.state.tranlateX}px)` 
         };
         // debugger
-        const videos = filterVideosByCategory(this.props.videos, this.props.category.videoIds, findType(this.props.location.pathname));
+        const videos = filterVideosByCategory(this.props.videos, this.props.category.videoIds, findType(this.props.location.pathname), this.props.genre.id);
         const selectedVideo = this.state.selectedVideo;
         return (
             <div className="category-container">

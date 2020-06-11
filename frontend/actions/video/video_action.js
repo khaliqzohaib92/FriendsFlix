@@ -30,7 +30,6 @@ const receiveVideoErrors=(errors)=>{
 //thunk action creators
 
 export const fetchVideosByGenre = (genreId, type)=>dispatch=>{
-    //debugger
     return VideoApiUtlis.fetchVideosByGenre(genreId, type)
     .then(
         videos=>dispatch(receiveVideos(filterVideos(videos))),

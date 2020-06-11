@@ -133,3 +133,33 @@
     padding-left: 39px;
 
 }
+
+.genre-container{
+    position: absolute;
+    left: 2.8vw;
+    top: 5vw;
+    min-width: 350px;
+    display: flex;
+    align-items: center;
+}
+
+.genre-title{   
+    font-weight: 700;
+    font-size: 2em;
+}
+
+.genre-menu{
+    border: 1px solid white;
+    background: #000000ce;
+    padding: 4px 10px 4px 10px;
+    margin-left: 3vw;
+    font-weight: 600;
+    font-size: 0.9em;
+    position: relative;
+    color: white;
+}
+
+.genre-item{
+    padding-top: 12px;
+}
+

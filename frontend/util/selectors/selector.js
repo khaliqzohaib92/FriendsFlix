@@ -1,10 +1,12 @@
 import { TYPE_ALL } from "../constants";
 
-export const topVideo = (videos, type)=>{
+export const topVideo = (videos, type, genreId)=>{
+    // debugger
     let tVideo;
     const videoArr = Object.values(videos);
     for(let i = 0; i < videoArr.length; i++){
-        if(videoArr[i].videoType === type || type === TYPE_ALL){
+        if((videoArr[i].videoType === type && 
+            videoArr[i].genreIds.includes(genreId)) || type === TYPE_ALL){
             return videoArr[i];
         }
     }  
@@ -13,7 +15,7 @@ export const topVideo = (videos, type)=>{
 }
 
 
-export const filterVideosByCategory = (videos, videoIds, type)=>{
+export const filterVideosByCategory = (videos, videoIds, type, genreId)=>{
     
     if(!videoIds) return undefined;
     //debugger
@@ -21,7 +23,7 @@ export const filterVideosByCategory = (videos, videoIds, type)=>{
     for (let i = 0; i < videoIds.length; i++) {
         let video = videos[videoIds[i]];
         if(!video) continue;
-        if((video.videoType === type || type === TYPE_ALL) && videoIds.includes(video.id)){
+        if(((video.videoType === type && video.genreIds.includes(genreId)) || type === TYPE_ALL) && videoIds.includes(video.id)){
             videosArr.push(video);
         }
     }
