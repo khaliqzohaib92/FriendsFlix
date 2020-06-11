@@ -32,7 +32,8 @@ class Category extends Component {
     }
 
     componentDidUpdate(prevprops){
-        if(this.props.location.pathname!= prevprops.location.pathname){
+        if(this.props.location.pathname!= prevprops.location.pathname ||
+             prevprops.genre.id != this.props.genre.id){
             this.init();
             this.setState({tranlateX: 0});
             this.setState({arrows:false});
