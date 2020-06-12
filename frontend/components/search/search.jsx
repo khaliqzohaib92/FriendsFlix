@@ -24,12 +24,9 @@ class Search extends Component {
     }
 
     componentDidUpdate(prevState){
-        // console.log("component Did update")
         const query = this.props.query; 
-        console.log("Query is: "+query);
         if(prevState.query != query){
             this.debounce(()=>{
-                // console.log("triggering query")
                 if(query.length > 0)
                     this.props.searchByName(query)
             }, 2000)();
@@ -38,7 +35,6 @@ class Search extends Component {
 
     debounce(func, delay){ 
         return ()=> { 
-            // debugger
             if(this.debounceTimer)
                 clearTimeout(this.debounceTimer) 
             this.debounceTimer  = setTimeout(func, delay) 
