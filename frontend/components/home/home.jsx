@@ -50,7 +50,6 @@ class Home extends Component {
         }
     }
 
-
     render() {
         if(!this.state.genre) return  (
             <div className="placeholder"></div>

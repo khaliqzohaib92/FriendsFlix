@@ -52,7 +52,7 @@ class TopVideo extends Component {
           //resetting genre to all or type change
           if(prevProps.location.pathname !== this.props.location.pathname &&
             this.state.genreId != this.props.genres[0].id){
-            this.setState({genreId: this.props.genres[0].id});
+            this.setState({genreId: this.props.genres[0].id, muted: true, expandedVideoId: undefined});
             this.props.triggerRerender(this.props.genres[0].id);
         }
         else
