@@ -26,7 +26,7 @@ Searching for movies is that simple click and start typing movie name or by genr
 ## Features
 
 <h1 align="center">
-  <img src="" width="600" height="auto" align="center"/>
+  <img src="https://github.com/khaliqzohaib92/FriendsFlix/blob/master/app/assets/demoGif/scroll.gif" width="600" height="auto" align="center"/>
 </h1>
 
 
@@ -126,7 +126,7 @@ class Category extends Component {
 
 ### Movies Hover and Details Page Animation
 <h1 align="center">
-  <img src="" width="600" height="auto" align="center"/>
+  <img src="https://github.com/khaliqzohaib92/FriendsFlix/blob/master/app/assets/demoGif/hover.gif" width="600" height="auto" align="center"/>
 </h1>
 
 The next challange was to animate the scaling when movie item is hovered and also displaying some of the buttons and movie details. 
@@ -160,7 +160,7 @@ Approach to solve this was:
 ### Search Page
 
 <h1 align="center">
-  <img src="" width="600" height="auto" align="center"/>
+  <img src="https://github.com/khaliqzohaib92/FriendsFlix/blob/master/app/assets/demoGif/search.gif" width="600" height="auto" align="center"/>
 </h1>
 
 
