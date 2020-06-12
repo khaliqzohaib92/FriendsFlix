@@ -19,6 +19,7 @@
     flex-direction: column;
 }
 
+
 .category-video-player{
     height: 100%;
     width: 70%;
@@ -28,13 +29,37 @@
     font-size: 3em;
     width: 100%;
 }
+.details{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 3vw;
+    margin-top: 0.3vw;
+}
+
+.category-video-details-video-rating{
+
+}
+
+.category-video-details-video-rating p {
+
+}
+
+.category-video-details-year{
+    font-weight: 500;
+    font-size: 1.2em;
+}
+
+.category-video-details-content-runtime{
+    font-weight: 500;
+    font-size: 1.2em;
+}
 
 .category-video-details-content-rating{
     border: 1px solid gray;
-    font-weight: 600;
+    font-weight: 500;
     padding: 2px 3px;
     width: fit-content;
-    margin-top: 0.3vw;
 }
 
 .category-video-details-desc{

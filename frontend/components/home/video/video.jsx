@@ -59,7 +59,7 @@ class Video extends Component {
     }
 
     toggleOtherArrow(e){
-        console.log("toggle other arrow triggered: "+this.state.otherArrow);
+        // console.log("toggle other arrow triggered: "+this.state.otherArrow);
         this.setState({otherArrow: !this.state.otherArrow});
     }
 
@@ -112,7 +112,7 @@ class Video extends Component {
                                 <h1 className="video-title">
                                     {video.title ? video.title.split("-")[0] : ""}
                                 </h1>
-                                <span className="video-rating">
+                                <span className="content-rating">
                                     {video.contentRating}
                                 </span>
                             </div>
