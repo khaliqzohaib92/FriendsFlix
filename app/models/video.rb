@@ -31,6 +31,10 @@ class Video < ApplicationRecord
 
     has_one_attached :thumbnail_url
 
+    has_many :my_lists, class_name: "Mylist", foreign_key: "video_id"
+
+    has_many :profiles, through: :my_lists, source: :profile
+
     def self.find_all
         Video
         .with_attached_thumbnail_url

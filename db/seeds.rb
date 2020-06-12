@@ -358,7 +358,7 @@ lost_in_space.video_url.attach(io: lost_in_space_video, filename: "space.mp4")
 
 all_genre = Genre.create(name:"All")
 horror_genre = Genre.create(name:"Horror")
-comdey_genre = Genre.create(name:"Comdey")
+comdey_genre = Genre.create(name:"Comedy")
 action_genre = Genre.create(name:"Action")
 thriller_genre = Genre.create(name:"Thriller")
 crime_genre = Genre.create(name:"Crime")

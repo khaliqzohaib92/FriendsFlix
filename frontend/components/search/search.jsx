@@ -14,20 +14,25 @@ class Search extends Component {
     }
 
     componentDidMount(){
-        console.log("component Did mount")
-        const query = this.props.query; 
-        this.props.searchByName(query);
+        // console.log("component Did mount")
+        // const query = this.props.query; 
+        // this.debounce(()=>{
+        //     // console.log("triggering query")
+        //     if(query.length > 0)
+        //         this.props.searchByName(query)
+        // }, 2000)();    
     }
 
     componentDidUpdate(prevState){
-        console.log("component Did update")
+        // console.log("component Did update")
         const query = this.props.query; 
+        console.log("Query is: "+query);
         if(prevState.query != query){
             this.debounce(()=>{
-                console.log("triggering query")
+                // console.log("triggering query")
                 if(query.length > 0)
                     this.props.searchByName(query)
-            }, 1000)();
+            }, 2000)();
         }
     }
 
