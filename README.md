@@ -17,29 +17,25 @@ This app was built with Ruby on Rails and React Redux. Please checkout a working
 * Heroku
 
 ## Interactions
-Hover over each thumbnail to get a preview of the movie or click the down arrow to see more detail about the video. On the thumbnail, you can go directly to the movie's watch page with the play button. The details page will display a synopsis, content rating, movie rating, runtime and a clip playing in the background. 
-
-You can look for movies that falls in paticular genre by selecting the genre from the top nav bar. 
-
-Searching for movies is that simple click and start typing movie name or by genre.
+Hover over each thumbnail to get a preview of the movie or click the down arrow to see more detail about the video. On the thumbnail, you can go directly to the movie's watch page with the play button. The details page will display a synopsis, content rating, movie rating, runtime and a clip playing in the background. You can look for movies that falls in paticular genre by selecting the genre from the top nav bar. Searching for movies is that simple click and start typing movie name or by genre.
 
 ## Features
 
 <h1 align="center">
-  <img src="" width="600" height="auto" align="center"/>
+  <img src="https://github.com/khaliqzohaib92/FriendsFlix/blob/master/app/assets/demoGif/scroll.gif" width="600" height="auto" align="center"/>
 </h1>
 
 
 ### Movie List Carousel
 
-The first challange started when making horizpntal scrolling with smooth transition after listing the movies in the by category. Also keeping track of how many movies can fit in to the screen or how much to scoll on each click to keep the transition smooth.
+First challange started when making horizontal scrolling with smooth transition after listing the movies in by category. Also keeping track of how many movies can fit in to the screen or how much to scoll on each click to keep the transition smooth.
 
-To solve this issue, I have added some proporties to keep track on the change in the values. Basic flow of the solution was:
+Basic flow of the solution:
 
-* Count number of items that can be displayed(feasibleElements).
-* Count number of left(elementsOnLeft) right(elementsOnRight) elements that are overflowed from the screen .
-* When user click on the arrow translating x with a value found by multiplying the width of the element with the number of feasible items. 
-* Updating the values with each click
+* Count number of items that can be displayed.
+* Count number of left and right elements that are overflowed from the screen .
+* When user click on the arrow either on the left or right, translating x with a value found by multiplying the width of the element with the number of feasible items. 
+* Updating the values on each click
 * Lastly setting the state(translateX) value to trigger render. 
 
 ```javascript
@@ -126,25 +122,25 @@ class Category extends Component {
 
 ### Movies Hover and Details Page Animation
 <h1 align="center">
-  <img src="" width="600" height="auto" align="center"/>
+  <img src="https://github.com/khaliqzohaib92/FriendsFlix/blob/master/app/assets/demoGif/hover.gif" width="600" height="auto" align="center"/>
 </h1>
 
-The next challange was to animate the scaling when movie item is hovered and also displaying some of the buttons and movie details. 
+The next challange was to animate the scaling when movie item is hovered. 
 
 Approach to solve this was:
 
 * Firslty scale the hovered item.
-* Select all the items that are prior to the hovered on and translate them with -35% (moving them to the left).
+* Select all the items that are prior to the hovered one and translate them with -35%.
 * Then select element on the right and translated them to right with 35%
 
 ```css
 
-// Thumbnail before the hovered item
+// Thumbnails before the hovered item
 .category-videos-container:hover .video-container {
   transform: translateX(-35%);
 }
 
-// Thumbnail after the hovered item
+// Thumbnails after the hovered item
 .video-container:hover ~ .video-container {
   transform: translateX(35%);
 }
@@ -160,11 +156,11 @@ Approach to solve this was:
 ### Search Page
 
 <h1 align="center">
-  <img src="" width="600" height="auto" align="center"/>
+  <img src="https://github.com/khaliqzohaib92/FriendsFlix/blob/master/app/assets/demoGif/search.gif" width="600" height="auto" align="center"/>
 </h1>
 
 
-For the search, redirect user to search page as soon as user start typing and used debouncing to send the request when there is a pause of 2 secs or more in typing. Attaching the search word as query and passing it over to the videos controller to get a response build by jbuilder and rendring it to the view.  
+For the search, redirect user to search page as soon as user start typing and used debouncing to send the request when there is a pause of 2 secs or more in typing. Attaching the search word as query and passing it over to the videos controller to get a response build by jbuilder.  
 
 ```javascript
 class Search extends Component {
