@@ -76,6 +76,9 @@ class AuthForm extends Component {
         e.preventDefault();
         if(this.validate()){
             this.props.action(Object.assign({},{email: this.state.email, password: this.state.password}));
+        }else{
+            this.setState({emailError: "Please enter a valid email"})
+            this.setState({passwordError: "Password should be atleast 6 characters"})
         }
     }
     

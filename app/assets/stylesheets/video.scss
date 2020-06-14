@@ -3,7 +3,6 @@
     display: flex;
     flex-direction: column;
     margin-right: 5px;
-    position: relative;
     width: fit-content;
 }
 .video-container{
@@ -12,7 +11,7 @@
     margin-right: 5px;
     cursor: pointer;
     transition: transform 500ms;
-    position: relative;
+    z-index: 100;
 }
 
 .video-border{

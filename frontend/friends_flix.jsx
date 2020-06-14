@@ -28,9 +28,9 @@ document.addEventListener("DOMContentLoaded", ()=>{
     ReactDOM.render(<Root store={store}/>, rootElemenet);
 
     // //testing
-    window.store = store;
-    window.video = video;
-    window.category = category;
+    // window.store = store;
+    // window.video = video;
+    // window.category = category;
     // window.signin = signin;
     // window.signout = signout;
     // window.signup = signup;

@@ -104,7 +104,7 @@ class HomeHeader extends React.Component {
                             <li><Link className={`home-nav-item  ${this.checkNavActiveStatus(ROUTE_HOME) ? "active" : ""}`} to={ROUTE_HOME}>Home</Link></li>
                             <li><Link className={`home-nav-item  ${this.checkNavActiveStatus(ROUTE_TV_SHOWS) ? "active" : ""}`}  to={ROUTE_TV_SHOWS}>TV Shows</Link></li>
                             <li><Link className={`home-nav-item  ${this.checkNavActiveStatus(ROUTE_MOVIES) ? "active" : ""}`} to={ROUTE_MOVIES}>Movies</Link></li>
-                            <li><Link className="home-nav-item" to="">My List</Link></li>
+                            {/* <li><Link className="home-nav-item" to="">My List</Link></li> */}
                         </ul>
                     </div>
                     

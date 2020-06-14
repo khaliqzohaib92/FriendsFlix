@@ -22,12 +22,14 @@
 
 body{
     height: 100%;
+    width: 100%;
     display: block;
     overflow-x: hidden;
 }
 
 .splash-background{
     background: image-url('splash_1.png') no-repeat; 
+    background-size: cover;
 }
 
 .home-backgorund{
@@ -44,11 +46,19 @@ body{
 }
 
  .main-app{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
  }
 
- /* .main-content{
-    min-height: 600px;
- } */
+ .main-content{
+    display: flex;
+    /* width: 100vw; */
+    /* background: aqua; */
+    justify-content: center;
+    flex-direction: column; 
+} 
 
 
  .placeholder{

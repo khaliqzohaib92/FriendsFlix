@@ -17,9 +17,9 @@
 
 .category-videos-container{
     display: flex;
+    position: relative;
     flex-direction: row;
     transition: transform 0.7s ease;
-
 }
 
 .video-carousel-left{

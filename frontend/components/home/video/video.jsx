@@ -120,9 +120,9 @@ class Video extends Component {
                                 <span className="video-volume" onClick={this.changeVolume}>
                                     <FontAwesomeIcon icon={this.state.muted ? faVolumeMute : faVolumeUp} size="sm" color={color}/>
                                 </span>
-                                <span className="video-add">
+                                {/* <span className="video-add">
                                     <FontAwesomeIcon icon={faPlusCircle} size="sm" color={color}/>
-                                </span>
+                                </span> */}
                             </div>
                         </div>
                         <span className="video-expand-arrow" onClick={this.epxandDetails}>

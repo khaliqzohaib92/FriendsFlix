@@ -46,7 +46,7 @@ class VideoDetails extends Component {
                             <p className="category-video-details-desc">{selectedVideo.description}</p>
                             <div className="category-video-details-buttons">
                                 <Link to={editVideoPlayRoute(selectedVideo.id)} className="category-video-play"><FontAwesomeIcon className="icon-right-margin" icon={faPlay}/>Play</Link>
-                                <button className="category-video-add-to-list"><FontAwesomeIcon className="icon-right-margin" icon={faPlus}/>My List</button>
+                                {/* <button className="category-video-add-to-list"><FontAwesomeIcon className="icon-right-margin" icon={faPlus}/>My List</button> */}
                             </div>
                         </div>
                         <div className="category-video-gradient">
