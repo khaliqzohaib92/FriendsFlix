@@ -59,7 +59,7 @@ class HomeHeader extends React.Component {
             attributes: true
         });
 
-        // this.props.history.push(ROUTE_SEARCH)
+        document.getElementById('search-input-con').style.marginRight = 0;
     }
 
     hideSearchBar(e){
@@ -67,6 +67,8 @@ class HomeHeader extends React.Component {
         document.getElementById("search-input").value="";
         // debugger
         this.props.history.replace(ROUTE_HOME);
+        document.getElementById('search-input-con').style.marginRight = '-220px';
+
     }
 
     signout(e){
@@ -109,10 +111,12 @@ class HomeHeader extends React.Component {
                     </div>
                     
                     <div className={`home-nav-container-2 `}>
-                        <div className={`home-nav-search-container  ${this.state.searchBarVisible ? "search-background" : "" }`}>
+                        <div className={`home-nav-search-container ${this.state.searchBarVisible ? "search-background" : "" }`}>
                             <FontAwesomeIcon  className="home-nav-search-icon" onClick={this.showSearchBar} icon={faSearch}/>
-                            <input className={`home-nav-search-input ${!this.state.searchBarVisible ? "hidden" : "" }`}   id="search-input" placeholder="Search" type="text" name="search" onChange={this.searchQuery}/>
-                            <FontAwesomeIcon onClick={this.hideSearchBar} className={!this.state.searchBarVisible ? "hidden" : "home-nav-search-close-icon" } icon={faTimesCircle}/>
+                            <span id="search-input-con" style={{display:'flex'}}>
+                                <input className={`home-nav-search-input`}   id="search-input" placeholder="Search" type="text" name="search" onChange={this.searchQuery}/>
+                                <FontAwesomeIcon onClick={this.hideSearchBar} className ="home-nav-search-close-icon" icon={faTimesCircle}/>
+                            </span>
                         </div>
                         
                         <span className="home-nav-profile-pic">

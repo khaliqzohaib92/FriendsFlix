@@ -73,7 +73,9 @@
    flex-direction: row;
    align-items: center;
    padding-left: 7px;
-   padding-right: 5px;
+   padding-right: 10px;
+   overflow: hidden;
+   cursor: pointer;
 }
 
 .home-nav-search-close-icon{
@@ -92,6 +94,11 @@
    font-size: 0.9em;
    color: white;
    display: flex;
+}
+
+#search-input-con{
+   margin-right: -220px;
+   transition: 0.4s;
 }
 
 input::placeholder{
