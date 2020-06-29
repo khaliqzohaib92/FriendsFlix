@@ -1,6 +1,7 @@
 import {connect} from 'react-redux';
 import {fetchVideo} from '../../../actions/video/video_action'
 import Video from './video';
+import {withRouter} from 'react-router-dom';
 
 const mSTP = (state, ownProps)=>{
     return {
@@ -16,4 +17,4 @@ const mDTP =  (dispatch, ownProps)=>{
     }
 }
 
-export default connect(mSTP, mDTP)(Video);
+export default withRouter(connect(mSTP, mDTP)(Video));

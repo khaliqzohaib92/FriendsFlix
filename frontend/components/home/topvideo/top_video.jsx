@@ -7,17 +7,19 @@ import { editVideoPlayRoute } from '../../../util/route_utils';
 import {Link} from 'react-router-dom';
 import {findType} from '../../../util/util'
 import { TYPE_ALL, TYPE_MOVIES } from '../../../util/constants';
-import { fetchVideosByGenre } from '../../../actions/video/video_action';
 
 
 class TopVideo extends Component {
     constructor(props){
         super(props);
-        this.state={muted: true, expandedVideoId: undefined, genreId: this.props.genre.id};
+        this.state={muted: true, expandedVideoId: undefined, genre: this.props.genre};
+        
         this.changeVolState = this.changeVolState.bind(this);
         this.showDetails = this.showDetails.bind(this);
         this.closeVideoExpand = this.closeVideoExpand.bind(this);
         this.onGenreClick = this.onGenreClick.bind(this);
+        this.showGenreMenu = this.showGenreMenu.bind(this);
+        this.hideGenreMenu = this.hideGenreMenu.bind(this);
     }
 
     changeVolState(e){
@@ -29,7 +31,7 @@ class TopVideo extends Component {
 
     fetchData(){
         if(!this.props.topVideo){
-            this.fetchVideos(this.state.genreId)
+            this.fetchVideos(this.state.genre.id)
         }else
         if(!this.props.topVideo.description){
             this.props.fetchVideo(this.props.topVideo.id);
@@ -51,9 +53,9 @@ class TopVideo extends Component {
     componentDidUpdate(prevProps){
           //resetting genre to all or type change
           if(prevProps.location.pathname !== this.props.location.pathname &&
-            this.state.genreId != this.props.genres[0].id){
-            this.setState({genreId: this.props.genres[0].id, muted: true, expandedVideoId: undefined});
-            this.props.triggerRerender(this.props.genres[0].id);
+            this.state.genre != this.props.genres[0]){
+            this.setState({genre: this.props.genres[0], muted: true, expandedVideoId: undefined});
+            this.props.triggerRerender(this.props.genres[0]);
         }
         else
             this.fetchData();
@@ -68,12 +70,22 @@ class TopVideo extends Component {
         this.setState({expandedVideoId: undefined});
     }
 
-    onGenreClick(e){
-      const genreId =   e.target.value
-        if(genreId != this.state.genreId){
-            this.props.triggerRerender(genreId);
-            this.setState({genreId: genreId})
+    onGenreClick(genre){
+      return e=>{
+        if(genre != this.state.genre){
+            document.getElementById('genre-menu').style.display = "none";
+            this.props.triggerRerender(genre.id);
+            this.setState({genre: genre})
         }
+      }
+    }
+
+    showGenreMenu(e){
+        document.getElementById('genre-menu').style.display = "flex";
+    }
+
+    hideGenreMenu(e){
+        document.getElementById('genre-menu').style.display = "none";
     }
 
     render() {
@@ -116,13 +128,20 @@ class TopVideo extends Component {
                  </div>
                 <div className={`${videoType === TYPE_ALL ? "hidden" :"genre-container"}`}>
                         <h1 className="genre-title">{videoType == TYPE_MOVIES ? "Movies" : "TV Shows" }</h1>
-                        <select className="genre-menu" id="genre-menu" onChange={this.onGenreClick} value={this.state.genreId}>
-                            {
-                                genres.map((genre)=>{
-                                    return <option value = {genre.id}  className="genre-item" key={genre.id}>{genre.name}</option>
-                                })
-                            }
-                        </select>
+                        {
+                                this.state.genre ? 
+                                <>
+                                <span className="genre-menu-title" onMouseEnter={this.showGenreMenu} onMouseLeave={this.hideGenreMenu}>{this.state.genre.name} <span className="genre-menu-arrow"><FontAwesomeIcon  icon={faSortDown}/></span></span>
+                                <ul className="genre-menu" id="genre-menu" value={this.state.genre}  onMouseEnter={this.showGenreMenu} onMouseLeave={this.hideGenreMenu}>
+                                    {
+                                        genres.map((genre)=>{
+                                            return <li value = {genre.id}  className="genre-item" key={genre.id} onClick={this.onGenreClick(genre)}>{genre.name}</li>
+                                        })
+                                    }
+                                </ul>
+                                </> :
+                                <></>
+                        }
                 </div>      
                 </div>  
                 <div className={!this.state.expandedVideoId ? "hidden" : "top-video-details"}>

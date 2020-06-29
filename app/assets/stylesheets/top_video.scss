@@ -147,9 +147,10 @@
 .genre-title{   
     font-weight: 700;
     font-size: 2em;
+    min-width: 10vw;
 }
 
-.genre-menu{
+.genre-menu-title{
     border: 1px solid white;
     background: #000000ce;
     padding: 4px 10px 4px 10px;
@@ -158,6 +159,45 @@
     font-size: 0.9em;
     position: relative;
     color: white;
+    min-width: 5vw;
+    display: flex;
+    justify-content: space-between;
+}
+
+.genre-menu-arrow{
+    margin-left: 1vw;
+
+}
+
+.genre-menu{
+    background: #000000ce;
+    padding: 4px 10px 4px 10px;
+    font-weight: 600;
+    font-size: 0.9em;
+    position: absolute;
+    color: white;
+    display: none;
+    flex-direction: column;
+    left: 13vw;
+    top: 2.01vw;
+    min-width: 10vw;
+}
+
+.genre-menu-title:hover + .genre-menu{
+    display: flex;
+}
+
+.genre-menu li{
+    list-style: none;
+}
+
+.genre-menu:hover{
+    display: flex;
+    cursor: pointer;
+}
+
+.genre-item:hover{
+    background-color: black;
 }
 
 .genre-item{

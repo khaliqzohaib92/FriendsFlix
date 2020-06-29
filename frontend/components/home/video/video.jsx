@@ -10,19 +10,21 @@ class Video extends Component {
         super(props);
         this.state = {toggleVideo: false, muted: true, otherArrow: false}
         this.timeOutInstance = null;
+        this.uniqueId = Math.floor(Math.random() * 1000);
+
         this.switchToVideo = this.switchToVideo.bind(this);
         this.switchToPoster = this.switchToPoster.bind(this);
-        this.playVideo = this.playVideo.bind(this);
         this.addToList = this.addToList.bind(this);
         this.changeVolume = this.changeVolume.bind(this);
         this.epxandDetails = this.epxandDetails.bind(this);
         this.toggleOtherArrow = this.toggleOtherArrow.bind(this);
         this.triggerFetchVideo = this.triggerFetchVideo.bind(this);
         this.playVideo = this.playVideo.bind(this);
-        this.uniqueId = Math.floor(Math.random() * 1000);
     }
 
     playVideo(e){
+        debugger
+        this.props.history.push(editVideoPlayRoute(this.props.video.id));
     }
 
     addToList(e) {
@@ -69,9 +71,6 @@ class Video extends Component {
         });
     }
 
-    playVideo(e){
-    }
-
     nothing(e){
     }
 
@@ -94,7 +93,7 @@ class Video extends Component {
                         expandedVideoId === 0  ? 
                         this.switchToPoster : expandedVideoId == video.id ? 
                         this.nothing : this.toggleOtherArrow
-                    }>     
+                    } onClick={this.playVideo}>     
 
                     <video className="video-thumbnail" 
                     id={`cat-video${this.uniqueId}`} 
@@ -106,7 +105,7 @@ class Video extends Component {
                     <div className={`${!this.state.toggleVideo || expandedVideoId === video.id ? "hidden" : "video-detail"}` }>
                         <div className="video-detail-top">
                             <div className="video-detail-sub-1">
-                                <Link to={editVideoPlayRoute(video.id)} className="video-play" onClick={this.playVideo}>
+                                <Link to={editVideoPlayRoute(video.id)} className="video-play">
                                     <FontAwesomeIcon icon={faPlayCircle} size="lg" color={color}/>
                                 </Link>
                                 <h1 className="video-title">
