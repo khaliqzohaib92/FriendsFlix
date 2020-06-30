@@ -126,6 +126,10 @@ class HomeHeader extends React.Component {
                         <div className="profile-drop-down">
                             <div className="profile-drop-down-sub-container">
                                 <ul className="profile-drop-down-list">
+                                    <li className="profile-drop-down-item"><a href="https://github.com/khaliqzohaib92">Github</a></li>
+                                    <li className="profile-drop-down-item"><a href="https://www.linkedin.com/in/zohaibkhaliq/">Linkedin</a></li>
+                                    <li className="profile-drop-down-item"><a href="https://angel.co/u/zohaib-khaliq-2">AngelList</a></li>
+                                    <li className="profile-drop-down-item" style={{borderBottom: '1px solid grey', paddingBottom: '10px'}}><a href="http://khaliqzohaib92.github.io/">Portfolio</a></li>
                                     <li onClick={this.openManageProfile} className="profile-drop-down-item">Manage Profile</li>
                                     <li onClick={this.signout} className="profile-drop-down-item">Sign Out</li>
                                 </ul>
