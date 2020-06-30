@@ -1,32 +1,56 @@
 # Friends Flix
 
-------
+## Version 1.0.0 - [Live](https://friendsflix.herokuapp.com/#/)
+
+## Contents
+- [Introduction](#introduction)
+- [Technologies](#technologies)
+- [Setup](#setup)
+- [Interactions](#interactions)
+- [Features](#features)
+  - [Movie List Carousel](#movie-list-carousel)
+  - [Movies Hover and Details Page Animation](#movies-hover-and-details-page-animation)
+  - [Search Movies](#search-movies)
 
 ## Introduction
-Welcome to Freindsflix, signing up will take you to the home page having top movie along with the movies and TV shows sorted by categories. You can slide back and forth to find more movies related to a category. You can also use the search bar in the top navigation section to find movies by name or genre. Clicking on the movie will show you it's details.
+Welcome to Freindsflix, it is a single page web application that is based on movies/tvshows streaming app [NetFlix](https://www.netflix.com/). FriendsFlix was built using Ruby on Rails, PostgreSQL, React and Redux. Please checkout live link here: [Live](https://friendsflix.herokuapp.com/#/)
 
-## Demo
-This app was built with Ruby on Rails and React Redux. Please checkout a working demo here: https://friendsflix.herokuapp.com/#/
-
-
-## Built With
-* Ruby on Rails
-* Postgres
-* React Redux
-* AWS
+## Technologies
+* Ruby on Rails: 2.5.1, 5.2.3 
+* Postgresql: 12.2
+* React / Redux: ^16.13.1, ^4.0.5
+* AWS S3
 * Heroku
+
+## Setup
+To run this project, clone it to your local machine and then run:
+```
+npm install
+```
+Tt will install all the front end dependencies. Then run:
+```
+bunlde install
+```
+This will install all the back end dependencies. Make sure PostgreSQL is runing in backgorund and run:
+```
+bundle exec rails db:setup
+```
+This will create the database, run migration and seed it with the data. Now run:
+```
+rails s
+```
+This will run the rails server and you can navigate to http://localhost:3000/ to view the web application locally.
 
 ## Interactions
 Hover over each thumbnail to get a preview of the movie or click the down arrow to see more detail about the video. On the thumbnail, you can go directly to the movie's watch page with the play button. The details page will display a synopsis, content rating, movie rating, runtime and a clip playing in the background. You can look for movies that falls in paticular genre by selecting the genre from the top nav bar. Searching for movies is that simple click and start typing movie name or by genre.
 
 ## Features
 
+### Movie List Carousel
+
 <h1 align="center">
   <img src="https://github.com/khaliqzohaib92/FriendsFlix/blob/master/app/assets/demoGif/scroll.gif" width="600" height="auto" align="center"/>
 </h1>
-
-
-### Movie List Carousel
 
 First challange started when making horizontal scrolling with smooth transition after listing the movies in by category. Also keeping track of how many movies can fit in to the screen or how much to scoll on each click to keep the transition smooth.
 
@@ -153,7 +177,7 @@ Approach to solve this was:
 ```
 
 
-### Search Page
+### Search Movies
 
 <h1 align="center">
   <img src="https://github.com/khaliqzohaib92/FriendsFlix/blob/master/app/assets/demoGif/search.gif" width="600" height="auto" align="center"/>
