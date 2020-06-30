@@ -22,10 +22,13 @@ const Footer = (props)=>{
                <div className="footer-div">
                <span>Find me on </span>
                 <a href="https://github.com/khaliqzohaib92">
-                    <FontAwesomeIcon icon={['fab', 'github']} size='lg' className='github'/>
+                    <FontAwesomeIcon icon={['fab', 'github']} size='lg' className='social'/>
                 </a>
                 <a href="https://www.linkedin.com/in/zohaibkhaliq/">
-                    <FontAwesomeIcon icon={['fab', 'linkedin']} size='lg' />
+                    <FontAwesomeIcon icon={['fab', 'linkedin']} size='lg' className='social'/>
+                </a>
+                <a href="https://angel.co/u/zohaib-khaliq-2">
+                    <FontAwesomeIcon icon={['fab', 'angellist']} size='lg' className='social' />
                 </a>
                </div>
             </footer>

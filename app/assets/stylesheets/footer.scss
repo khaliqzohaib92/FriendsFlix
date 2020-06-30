@@ -7,7 +7,11 @@
     align-items: center;
 }
 
-.github{
-    margin-right: 10px;
+.social{
     margin-left: 20px;
+    transition: all .2s ease;
+}
+
+.social:hover{
+    transform:  scale(1.2);
 }
