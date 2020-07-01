@@ -38,6 +38,7 @@ class Video extends Component {
     }
 
     epxandDetails(e) {
+        e.stopPropagation();
         this.props.onVideoExpanded(this.props.video);
         this.setState({toggleVideo: false});
     }
@@ -62,6 +63,7 @@ class Video extends Component {
 
     toggleOtherArrow(e){
         // console.log("toggle other arrow triggered: "+this.state.otherArrow);
+        e.stopPropagation();
         this.setState({otherArrow: !this.state.otherArrow});
     }
 
