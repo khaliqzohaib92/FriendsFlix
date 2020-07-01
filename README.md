@@ -13,7 +13,7 @@
   - [Search Movies](#search-movies)
 
 ## Introduction
-Welcome to Freindsflix, it is a single page web application that is based on movies/tvshows streaming app [NetFlix](https://www.netflix.com/). FriendsFlix was built using Ruby on Rails, PostgreSQL, React and Redux. Please checkout live link here: [Live](https://friendsflix.herokuapp.com/#/)
+Welcome to Freindsflix, it is a single page web application based on [NetFlix](https://www.netflix.com/). FriendsFlix was built using Ruby on Rails, PostgreSQL, React and Redux. Please checkout live link here: [Live](https://friendsflix.herokuapp.com/#/)
 
 ## Technologies
 * Ruby on Rails: 2.5.1, 5.2.3 
