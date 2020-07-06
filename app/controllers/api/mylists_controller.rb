@@ -11,15 +11,6 @@ class Api::MylistsController < ApplicationController
         end
     end
 
-    def show
-        @mylist = mylist.find_by(profile_id: params[:id])
-        if @mylist
-            render :show
-        else
-            my_render(404, ["Not found"])
-        end
-    end
-
     def update
         # //degbuuger
         @mylist = mylist.find_by(id: params[:id])
