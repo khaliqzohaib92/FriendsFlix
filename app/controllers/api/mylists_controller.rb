@@ -1,6 +1,14 @@
 class Api::MylistsController < ApplicationController
     # before_action :ensure_signed_in, only: [:index, :create, :update, :show, :destroy]
 
+    def index
+       if params[:profile_id]
+            @mylists = Mylist.where(profile_id: params[:profile_id])
+            render :index
+       else
+        my_render(422, "Nothing to process!")
+       end
+    end
 
     def create 
         @mylist = mylist.new(mylist_params)
@@ -12,7 +20,6 @@ class Api::MylistsController < ApplicationController
     end
 
     def update
-        # //degbuuger
         @mylist = mylist.find_by(id: params[:id])
 
         @mylist.update(mylist_params)
