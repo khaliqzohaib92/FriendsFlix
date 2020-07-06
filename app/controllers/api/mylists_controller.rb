@@ -1,5 +1,5 @@
 class Api::MylistsController < ApplicationController
-    # before_action :ensure_signed_in, only: [:index, :create, :update, :show, :destroy]
+    before_action :ensure_signed_in, only: [:index, :create, , :show, :destroy]
 
     def index
        if params[:profile_id]
@@ -13,17 +13,6 @@ class Api::MylistsController < ApplicationController
     def create 
         @mylist = mylist.new(mylist_params)
         if @mylist.save
-            render :show
-        else
-            my_render(422, @mylist.errors.full_messages)
-        end
-    end
-
-    def update
-        @mylist = mylist.find_by(id: params[:id])
-
-        @mylist.update(mylist_params)
-        if @mylist
             render :show
         else
             my_render(422, @mylist.errors.full_messages)
