@@ -11,8 +11,9 @@ export const fetchMyList = (profileId)=>{
     })
 };
 
-// export const deleteMyList = (myListId) =>{
-//     return $.ajax({
-//         url: `api/videos/?q=${name.toLowerCase()}`
-//     })
-// }
+export const deleteMyList = (myListId) =>{
+    return $.ajax({
+        url: `api/mylists/${myListId}`,
+        method: 'DELETE'
+    })
+}
