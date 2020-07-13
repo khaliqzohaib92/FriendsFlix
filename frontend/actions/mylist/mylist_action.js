@@ -2,7 +2,7 @@ import MyListUtils from '../../util/mylist/mylist_api_utils';
 
 export const RECEIVE_MY_LISTS = "RECEIVE_MY_LISTS";
 export const RECEIVE_MY_LIST = "RECEIVE_MY_LIST";
-export const DELETE_MY_LIST = "DELETE_MY_LIST";
+export const REMOVE_MY_LIST_ITEM = "REMOVE_MY_LIST_ITEM";
 
 
 const receiveMyLists = (mylists)=>{
@@ -19,9 +19,9 @@ const receiveMyList = (mylist)=>{
     }
 }
 
-const removeMyLists = (mylistId)=>{
+const removeMyListItem = (mylistId)=>{
     return {
-        type: RECEIVE_MY_LISTS,
+        type: REMOVE_MY_LIST_ITEM,
         mylistId
     }
 }
@@ -33,11 +33,11 @@ export const fetchMyLists = (profileId)=>dispatch=>{
 
 export const addToMyList = (videoId)=>dispatch=>{
     return MyListUtils.addToMyList(videoId)
-    .then(mylist=>dispatch(removeMyList(mylist)));
+    .then(mylist=>dispatch(receiveMyList(mylist)));
 }
 
-export const deleteMyList = (myListId)=>dispatch=>{
-    return MyListUtils.deleteMyList(myListId)
-    .then(()=>dispatch(removeMyLists(myListId)));
+export const removeMyListItem = (myListId)=>dispatch=>{
+    return MyListUtils.removeMyListItem(myListId)
+    .then(()=>dispatch(removeMyListItem(myListId)));
 }
 

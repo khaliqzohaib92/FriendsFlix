@@ -11,7 +11,7 @@ export const fetchMyLists = (profileId)=>{
     })
 };
 
-export const deleteMyList = (myListId) =>{
+export const removeMyListItem = (myListId) =>{
     return $.ajax({
         url: `api/mylists/${myListId}`,
         method: 'DELETE'
