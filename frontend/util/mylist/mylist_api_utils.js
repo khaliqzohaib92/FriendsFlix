@@ -5,14 +5,15 @@ export const addToMyList = (videoId)=>{
     })
 };
 
-export const fetchMyList = (profileId)=>{
+export const fetchMyLists = (profileId)=>{
     return $.ajax({
         url: `api/profiles/${profileId}/mylists`
     })
 };
 
-// export const deleteMyList = (myListId) =>{
-//     return $.ajax({
-//         url: `api/videos/?q=${name.toLowerCase()}`
-//     })
-// }
+export const removeMyListItem = (myListId) =>{
+    return $.ajax({
+        url: `api/mylists/${myListId}`,
+        method: 'DELETE'
+    })
+}

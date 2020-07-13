@@ -1,5 +1,5 @@
 class Api::MylistsController < ApplicationController
-    before_action :ensure_signed_in, only: [:index, :create, , :show, :destroy]
+    before_action :ensure_signed_in, only: [:index, :create, :show, :destroy]
 
     def index
        if params[:profile_id]
