@@ -26,6 +26,8 @@ class Home extends Component {
         }
         if(this.props.categories.length==0)
             this.props.fetchCategories(); 
+
+        this.props.fetchMyLists(this.props.currentProfileId);
     }
 
     fetchVideos(){

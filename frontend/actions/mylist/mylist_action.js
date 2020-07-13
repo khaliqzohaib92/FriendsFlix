@@ -1,4 +1,4 @@
-import MyListUtils from '../../util/mylist/mylist_api_utils';
+import * as MyListUtils from '../../util/mylist/mylist_api_utils';
 
 export const RECEIVE_MY_LISTS = "RECEIVE_MY_LISTS";
 export const RECEIVE_MY_LIST = "RECEIVE_MY_LIST";
@@ -36,7 +36,7 @@ export const addToMyList = (videoId)=>dispatch=>{
     .then(mylist=>dispatch(receiveMyList(mylist)));
 }
 
-export const removeMyListItem = (myListId)=>dispatch=>{
+export const deleteMyListItem = (myListId)=>dispatch=>{
     return MyListUtils.removeMyListItem(myListId)
     .then(()=>dispatch(removeMyListItem(myListId)));
 }
