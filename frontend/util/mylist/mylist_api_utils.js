@@ -5,7 +5,7 @@ export const addToMyList = (videoId)=>{
     })
 };
 
-export const fetchMyList = (profileId)=>{
+export const fetchMyLists = (profileId)=>{
     return $.ajax({
         url: `api/profiles/${profileId}/mylists`
     })
