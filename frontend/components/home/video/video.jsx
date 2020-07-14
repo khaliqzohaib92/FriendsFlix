@@ -24,6 +24,7 @@ class Video extends Component {
     }
 
     playVideo(e){
+        e.stopPropagation();
         this.props.history.push(editVideoPlayRoute(this.props.video.id));
     }
 
@@ -40,6 +41,7 @@ class Video extends Component {
     }
 
     changeVolume(e) {
+        e.stopPropagation();
         const videoElement = document.getElementById("cat-video"+this.uniqueId);
         videoElement.muted = !videoElement.muted;
         this.setState({muted: videoElement.muted});
