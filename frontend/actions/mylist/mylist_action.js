@@ -31,8 +31,8 @@ export const fetchMyLists = (profileId)=>dispatch=>{
     .then(mylists=>dispatch(receiveMyLists(mylists)));
 }
 
-export const addToMyList = (videoId)=>dispatch=>{
-    return MyListUtils.addToMyList(videoId)
+export const addToMyList = (mylist)=>dispatch=>{
+    return MyListUtils.addToMyList(mylist)
     .then(mylist=>dispatch(receiveMyList(mylist)));
 }
 

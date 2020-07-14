@@ -2,7 +2,6 @@ class Api::VideosController < ApplicationController
     before_action :ensure_signed_in, only: [:index, :show]
 
     def index
-        # debugger
         if params[:q]
             @videos = Video.search(params[:q])
             render :index
@@ -18,7 +17,6 @@ class Api::VideosController < ApplicationController
     end
 
     def show
-        # debugger
         @video = Video.find_by_id(params[:id])
         if @video
             render :show

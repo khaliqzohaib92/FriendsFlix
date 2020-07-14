@@ -1,3 +1,3 @@
-json.set! @video.id do
-    json.partial! '/api/mylists/mylist', mylsit: @mylist
+json.set! @mylist.id do
+    json.partial! '/api/mylists/mylist', mylist: @mylist
 end

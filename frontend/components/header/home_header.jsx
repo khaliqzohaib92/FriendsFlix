@@ -65,7 +65,6 @@ class HomeHeader extends React.Component {
     hideSearchBar(e){
         this.setState({searchBarVisible: false});
         document.getElementById("search-input").value="";
-        // debugger
         this.props.history.replace(ROUTE_HOME);
         document.getElementById('search-input-con').style.marginRight = '-220px';
 
@@ -88,13 +87,11 @@ class HomeHeader extends React.Component {
     }
 
     searchQuery(e){
-        // debugger
         this.props.history.push(editSearchRoute(e.target.value));
     }
     
 
     render(){
-    //    //debugger
         return (
             <header>
                 <nav className="splash-nav">

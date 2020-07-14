@@ -1,7 +1,9 @@
 
-export const addToMyList = (videoId)=>{
+export const addToMyList = (mylist)=>{
     return $.ajax({
-        url: `api/mylists/${videoId}`
+        url: `api/mylists`,
+        method:'POST',
+        data: {mylist}
     })
 };
 

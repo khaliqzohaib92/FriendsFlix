@@ -87,7 +87,6 @@ class Search extends Component {
 }
 
 const mSTP = (state, ownProps)=>{
-    // debugger
     return{
         query: ownProps.match.params.query,
         videos: filterForSearch(state, ownProps.match.params.query)

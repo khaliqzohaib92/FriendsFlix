@@ -11,8 +11,8 @@ class Api::MylistsController < ApplicationController
     end
 
     def create 
-        @mylist = mylist.new(mylist_params)
-        if @mylist.save
+        @mylist = Mylist.new(mylist_params)
+        if @mylist.save!
             render :show
         else
             my_render(422, @mylist.errors.full_messages)
@@ -20,7 +20,7 @@ class Api::MylistsController < ApplicationController
     end
 
     def destroy
-        @mylist = mylist.find_by(id: params[:id])
+        @mylist = Mylist.find_by(id: params[:id])
         if @mylist.destroy
             my_render(200)
         else
@@ -30,7 +30,7 @@ class Api::MylistsController < ApplicationController
 
     private
     def mylist_params
-        params.require(:mylist).permit(:video_id, :mylist_id)
+        params.require(:mylist).permit(:video_id, :profile_id)
     end
     
 end
