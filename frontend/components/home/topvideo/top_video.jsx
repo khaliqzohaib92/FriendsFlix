@@ -94,9 +94,7 @@ class TopVideo extends Component {
             <div className="tops-video-video-main"></div>
         );
         const topVideo = this.props.topVideo;
-        // debugger
         const videoType = findType(this.props.location.pathname);
-        // console.log(`${videoType} == ${TYPE_ALL}  ${videoType===TYPE_ALL}`);
         const {genres} = this.props;
         return (
             <>

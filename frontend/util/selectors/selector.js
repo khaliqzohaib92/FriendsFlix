@@ -1,7 +1,6 @@
 import { TYPE_ALL } from "../constants";
 
 export const topVideo = (videos, type, genreId)=>{
-    // debugger
     let tVideo;
     const videoArr = Object.values(videos);
     for(let i = 0; i < videoArr.length; i++){
@@ -18,7 +17,6 @@ export const topVideo = (videos, type, genreId)=>{
 export const filterVideosByCategory = (videos, videoIds, type, genreId)=>{
     
     if(!videoIds) return undefined;
-    //debugger
     const videosArr = [];
     for (let i = 0; i < videoIds.length; i++) {
         let video = videos[videoIds[i]];
@@ -32,7 +30,6 @@ export const filterVideosByCategory = (videos, videoIds, type, genreId)=>{
 }
 
 export const filterForSearch = (state ,name)=>{
-    // debugger
     const genre = findGenreByName(state, name);
     const videosArr = [];
     let videos = Object.values(state.entities.videos);

@@ -14,24 +14,32 @@ class Video extends Component {
 
         this.switchToVideo = this.switchToVideo.bind(this);
         this.switchToPoster = this.switchToPoster.bind(this);
-        this.addToList = this.addToList.bind(this);
         this.changeVolume = this.changeVolume.bind(this);
         this.epxandDetails = this.epxandDetails.bind(this);
         this.toggleOtherArrow = this.toggleOtherArrow.bind(this);
         this.triggerFetchVideo = this.triggerFetchVideo.bind(this);
         this.playVideo = this.playVideo.bind(this);
+        this.addToMyList = this.addToMyList.bind(this);
+        this.deleteMyListItem = this.deleteMyListItem.bind(this);
     }
 
     playVideo(e){
-        debugger
         this.props.history.push(editVideoPlayRoute(this.props.video.id));
     }
 
-    addToList(e) {
+    addToMyList(e){
+        e.stopPropagation();
+        this.props.addToMyList({
+           video_id: this.props.video.id,
+           profile_id: this.props.currentProfileId,
+        })
+    }
+
+    deleteMyListItem(e){
+        this.props.deleteMyListItem(this.props.video.id)
     }
 
     changeVolume(e) {
-        // //debugger
         const videoElement = document.getElementById("cat-video"+this.uniqueId);
         videoElement.muted = !videoElement.muted;
         this.setState({muted: videoElement.muted});
@@ -121,9 +129,9 @@ class Video extends Component {
                                 <span className="video-volume" onClick={this.changeVolume}>
                                     <FontAwesomeIcon icon={this.state.muted ? faVolumeMute : faVolumeUp} size="sm" color={color}/>
                                 </span>
-                                {/* <span className="video-add">
-                                    <FontAwesomeIcon icon={faPlusCircle} size="sm" color={color}/>
-                                </span> */}
+                                <span className="video-add">
+                                    <FontAwesomeIcon onClick={this.addToMyList} icon={faPlusCircle} size="sm" color={color}/>
+                                </span>
                             </div>
                         </div>
                         <span className="video-expand-arrow" onClick={this.epxandDetails}>
