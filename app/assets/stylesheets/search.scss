@@ -1,9 +1,8 @@
 .search-result-contianer{
     min-height: 100vh;
-    min-width: 100%;
     display: flex;
     flex-direction: row;
-    margin-bottom: 20px;
+    margin: 0 auto 20px auto;
 }
 
 .search-results{
@@ -19,7 +18,7 @@
 }
 
 .search-video-list-contianer{
-    margin-left: 3vw;
+    // margin-left: 3vw;
 }
 
 .nothing-found-container{
