@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {faPlayCircle, faChevronDown, faPlusCircle, faVolumeMute, faVolumeUp} from '@fortawesome/free-solid-svg-icons'
+import {faPlayCircle, faChevronDown, faPlusCircle, faVolumeMute, faVolumeUp, faCheckCircle} from '@fortawesome/free-solid-svg-icons'
 import { editVideoPlayRoute } from '../../../util/route_utils';
 
 class Video extends Component {
@@ -24,6 +24,7 @@ class Video extends Component {
     }
 
     playVideo(e){
+        e.stopPropagation();
         this.props.history.push(editVideoPlayRoute(this.props.video.id));
     }
 
@@ -36,10 +37,15 @@ class Video extends Component {
     }
 
     deleteMyListItem(e){
-        this.props.deleteMyListItem(this.props.video.id)
+        e.stopPropagation();
+        this.props.deleteMyListItem({
+            video_id: this.props.video.id,
+            profile_id: this.props.currentProfileId,
+         })
     }
 
     changeVolume(e) {
+        e.stopPropagation();
         const videoElement = document.getElementById("cat-video"+this.uniqueId);
         videoElement.muted = !videoElement.muted;
         this.setState({muted: videoElement.muted});
@@ -130,7 +136,11 @@ class Video extends Component {
                                     <FontAwesomeIcon icon={this.state.muted ? faVolumeMute : faVolumeUp} size="sm" color={color}/>
                                 </span>
                                 <span className="video-add">
-                                    <FontAwesomeIcon onClick={this.addToMyList} icon={faPlusCircle} size="sm" color={color}/>
+                                    {
+                                        this.props.inMyList ?
+                                        <FontAwesomeIcon onClick={this.deleteMyListItem} icon={faCheckCircle} size="sm" color={color}/>:
+                                        <FontAwesomeIcon onClick={this.addToMyList} icon={faPlusCircle} size="sm" color={color}/>
+                                    }
                                 </span>
                             </div>
                         </div>

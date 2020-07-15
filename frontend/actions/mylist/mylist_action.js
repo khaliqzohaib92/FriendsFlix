@@ -19,10 +19,10 @@ const receiveMyList = (mylist)=>{
     }
 }
 
-const removeMyListItem = (mylistId)=>{
+const removeMyListItem = (videoId)=>{
     return {
         type: REMOVE_MY_LIST_ITEM,
-        mylistId
+        videoId
     }
 }
 
@@ -36,8 +36,8 @@ export const addToMyList = (mylist)=>dispatch=>{
     .then(mylist=>dispatch(receiveMyList(mylist)));
 }
 
-export const deleteMyListItem = (myListId)=>dispatch=>{
-    return MyListUtils.removeMyListItem(myListId)
-    .then(()=>dispatch(removeMyListItem(myListId)));
+export const deleteMyListItem = (mylist)=>dispatch=>{
+    return MyListUtils.removeMyListItem(mylist)
+    .then(()=>dispatch(removeMyListItem(mylist.video_id)));
 }
 
