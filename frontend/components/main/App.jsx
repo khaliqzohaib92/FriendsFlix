@@ -12,7 +12,8 @@ import {
   ROUTE_SIGNIN, 
   ROUTE_PROFILES_FORM_EDIT, 
   ROUTE_PROFILES_FORM, 
-  ROUTE_PROFILES_MANAGE, 
+  ROUTE_PROFILES_MANAGE,
+  ROUTE_MY_LIST,
   ProtectedRoute, AuthRoute, ROUTE_HOME, ROUTE_PLAY_VIDEO, ROUTE_SEARCH
 } from "../../util/route_utils";
 
@@ -24,6 +25,7 @@ import ProfileManage from "../profiles/manage/profile_manage";
 import HomeContainer from "../home/home_container";
 import VideoPlayer from '../home/play/video_player'
 import Search from "../search/search";
+import MyList from "../mylist/mylist"
 
 
 const App = () => (
@@ -39,6 +41,7 @@ const App = () => (
         <ProtectedRoute   path={ROUTE_PROFILES_FORM_EDIT} component={ProfileFormContainer}/> 
         <ProtectedRoute   path={ROUTE_PROFILES_MANAGE} component={ProfileManage}/> 
         <ProtectedRoute   path={ROUTE_SEARCH} component={Search}/> 
+        <ProtectedRoute   path={ROUTE_MY_LIST} component={MyList}/> 
         <ProtectedRoute   path={ROUTE_HOME} component={HomeContainer}/> 
         <ProtectedRoute   path={ROUTE_PLAY_VIDEO} component={VideoPlayer}/> 
       </Switch>

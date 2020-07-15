@@ -15,6 +15,7 @@ export const ROUTE_PROFILES_MANAGE = '/profiles/manage';
 export const ROUTE_HOME = '/home';
 export const ROUTE_MOVIES = '/home/movies';
 export const ROUTE_TV_SHOWS = '/home/tvshows';
+export const ROUTE_MY_LIST = '/home/mylist';
 export const ROUTE_PLAY_VIDEO = "/play/:id"
 export const ROUTE_SEARCH = "/home/search/:query"
 

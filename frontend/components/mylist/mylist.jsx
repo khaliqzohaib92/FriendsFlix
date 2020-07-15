@@ -1,36 +1,15 @@
 import React, { Component } from 'react';
-import { searchByName } from '../../actions/video/video_action';
-import {connect} from 'react-redux';
-import { filterForSearch } from '../../util/selectors/selector';
-import {withRouter} from 'react-router-dom';
-import SearchVideoList from './search_video_list';
-class Search extends Component {
-   
+import { fetchMyListVideos } from '../../util/selectors/selector';
+import { connect } from 'react-redux';
+import SearchVideoList from '../search/search_video_list';
+
+
+class MyList extends Component {
+    
     constructor(props){
         super(props);
 
-        this.debounceTimer =undefined;
-        this.debounce = this.debounce.bind(this);
     }
-
-    componentDidUpdate(prevState){
-        const query = this.props.query; 
-        if(prevState.query != query){
-            this.debounce(()=>{
-                if(query.length > 0)
-                    this.props.searchByName(query)
-            }, 2000)();
-        }
-    }
-
-    debounce(func, delay){ 
-        return ()=> { 
-            if(this.debounceTimer)
-                clearTimeout(this.debounceTimer) 
-            this.debounceTimer  = setTimeout(func, delay) 
-        } 
-    }
-   
 
     makeSlices(videos, elementToSkip = 6){
         if(Object.values(videos).length ==0){
@@ -76,19 +55,10 @@ class Search extends Component {
     }
 }
 
-const mSTP = (state, ownProps)=>{
-    return{
-        query: ownProps.match.params.query,
-        videos: filterForSearch(state, ownProps.match.params.query)
+const mSTP = (state) => {
+    return {
+        videos: fetchMyListVideos(state.entities.mylist, state.entities.videos)
     }
 }
 
-const mDTP = (dispatch)=>{
-    return{
-        searchByName:(query)=>dispatch(searchByName(query)),
-    }
-}
-
-
-
-export default withRouter(connect(mSTP,mDTP)(Search));
+export default connect(mSTP, null)(MyList);

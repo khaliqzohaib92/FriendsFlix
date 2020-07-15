@@ -3,14 +3,13 @@ import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
 
-import {ROUTE_PROFILES, ROUTE_HOME, ROUTE_MOVIES, ROUTE_TV_SHOWS, ROUTE_SEARCH, editSearchRoute} from '../../util/route_utils'
+import {ROUTE_PROFILES, ROUTE_HOME, ROUTE_MOVIES, ROUTE_TV_SHOWS, ROUTE_SEARCH, editSearchRoute, ROUTE_MY_LIST} from '../../util/route_utils'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faSearch, faSortDown, faTimesCircle} from '@fortawesome/free-solid-svg-icons';
 import {fetchProfiles} from '../../actions/profile/profile_action'
 
 import {CURRENT_PROFILE_ID} from '../../util/constants'
 import { signout } from '../../actions/session/session_actions';
-import { findType } from '../../util/util';
 
 class HomeHeader extends React.Component {
     constructor(props){
@@ -103,7 +102,7 @@ class HomeHeader extends React.Component {
                             <li><Link className={`home-nav-item  ${this.checkNavActiveStatus(ROUTE_HOME) ? "active" : ""}`} to={ROUTE_HOME}>Home</Link></li>
                             <li><Link className={`home-nav-item  ${this.checkNavActiveStatus(ROUTE_TV_SHOWS) ? "active" : ""}`}  to={ROUTE_TV_SHOWS}>TV Shows</Link></li>
                             <li><Link className={`home-nav-item  ${this.checkNavActiveStatus(ROUTE_MOVIES) ? "active" : ""}`} to={ROUTE_MOVIES}>Movies</Link></li>
-                            {/* <li><Link className="home-nav-item" to="">My List</Link></li> */}
+                            <li><Link className={`home-nav-item  ${this.checkNavActiveStatus(ROUTE_MY_LIST) ? "active" : ""}`} to={ROUTE_MY_LIST}>My List</Link></li>
                         </ul>
                     </div>
                     

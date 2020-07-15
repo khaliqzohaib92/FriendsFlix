@@ -51,14 +51,9 @@ function findGenreByName(state, name){
     }
     return undefined;
 }
-// export const filterVideosByType = (videos, type)=>{
-//     const videosArr = Object.values(videos);
-//     let newVideoArr = [];
-//     for(let i = 0; i < videosArr.length; i++){
-//         if(videosArr[i].videoType === type || type === TYPE_ALL){
-//             newVideoArr(videosArr[i]);
-//         }
-//     }  
 
-//     return newVideoArr;
-// }
+export const fetchMyListVideos = (videoIds, videos)=>{
+    return videoIds.map((videoId) => {
+        return videos[videoId];
+    })
+}
