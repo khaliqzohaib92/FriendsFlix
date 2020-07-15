@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {faPlayCircle, faChevronDown, faPlusCircle, faVolumeMute, faVolumeUp} from '@fortawesome/free-solid-svg-icons'
+import {faPlayCircle, faChevronDown, faPlusCircle, faVolumeMute, faVolumeUp, faCheckCircle} from '@fortawesome/free-solid-svg-icons'
 import { editVideoPlayRoute } from '../../../util/route_utils';
 
 class Video extends Component {
@@ -37,7 +37,11 @@ class Video extends Component {
     }
 
     deleteMyListItem(e){
-        this.props.deleteMyListItem(this.props.video.id)
+        e.stopPropagation();
+        this.props.deleteMyListItem({
+            video_id: this.props.video.id,
+            profile_id: this.props.currentProfileId,
+         })
     }
 
     changeVolume(e) {
@@ -132,7 +136,11 @@ class Video extends Component {
                                     <FontAwesomeIcon icon={this.state.muted ? faVolumeMute : faVolumeUp} size="sm" color={color}/>
                                 </span>
                                 <span className="video-add">
-                                    <FontAwesomeIcon onClick={this.addToMyList} icon={faPlusCircle} size="sm" color={color}/>
+                                    {
+                                        this.props.inMyList ?
+                                        <FontAwesomeIcon onClick={this.deleteMyListItem} icon={faCheckCircle} size="sm" color={color}/>:
+                                        <FontAwesomeIcon onClick={this.addToMyList} icon={faPlusCircle} size="sm" color={color}/>
+                                    }
                                 </span>
                             </div>
                         </div>
