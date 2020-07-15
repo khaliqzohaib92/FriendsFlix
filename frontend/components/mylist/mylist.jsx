@@ -39,14 +39,7 @@ class MyList extends Component {
                     {
                       this.props.videos.length > 0 ? this.makeSlices(this.props.videos) :
                       <div className="nothing-found-container">
-                          <p className="nothing-found-text">{`Your search for "${this.props.query}" did not have any matches.`}</p>
-                            <p className="nothing-found-text">Suggestions:</p>
-                            <ul className="nothing-found-text">
-                                <li>Try different keywords</li>
-                                <li>Looking for a movie or TV show?</li>
-                                <li>Try using a movie, TV show title, actor, or director</li>
-                                <li>Try a genre, like comedy, action, romance</li>
-                            </ul>
+                            <p className="nothing-found-text">Add some videos to your list!</p>
                       </div> 
                     }
                 </div>

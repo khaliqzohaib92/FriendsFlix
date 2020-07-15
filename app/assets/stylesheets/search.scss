@@ -22,7 +22,12 @@
 }
 
 .nothing-found-container{
-    margin-top: 150px;
+    width: 100vw;
+    margin: 150px auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
 .nothing-found-text{
